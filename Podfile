@@ -4,6 +4,7 @@ target :StorePOS, :exclusive => true do
     pod 'Realm'
     pod 'YYModel'
     pod 'PocketSocket'
+    pod 'PureLayout'
 end
 
 target :StorePOSTests, :exclusive => true do
