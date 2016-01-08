@@ -17,6 +17,9 @@
 		316575DC1C3F5CAA0097EE32 /* Order.m in Sources */ = {isa = PBXBuildFile; fileRef = 316575DB1C3F5CAA0097EE32 /* Order.m */; };
 		316575E11C3F5E5F0097EE32 /* OrderService.m in Sources */ = {isa = PBXBuildFile; fileRef = 316575E01C3F5E5F0097EE32 /* OrderService.m */; };
 		316575E31C3F62970097EE32 /* OrderServiceSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 316575E21C3F62970097EE32 /* OrderServiceSpec.m */; };
+		316575E61C3FB2DC0097EE32 /* DBService.m in Sources */ = {isa = PBXBuildFile; fileRef = 316575E51C3FB2DC0097EE32 /* DBService.m */; };
+		316575E91C3FB5280097EE32 /* OrderStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 316575E81C3FB5280097EE32 /* OrderStore.m */; };
+		316575EB1C3FB7B00097EE32 /* DBServiceSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 316575EA1C3FB7B00097EE32 /* DBServiceSpec.m */; };
 		B7A7A641CC8EF0B16DB0DD24 /* libPods-StorePOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A7431F826FBEADE6E5D52008 /* libPods-StorePOSTests.a */; };
 		F7D522E4CCE05B706EDC1E3C /* libPods-StorePOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 03DF0A613CC3FA2DB7554DA3 /* libPods-StorePOS.a */; };
 /* End PBXBuildFile section */
@@ -61,6 +64,11 @@
 		316575DF1C3F5E5F0097EE32 /* OrderService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderService.h; sourceTree = "<group>"; };
 		316575E01C3F5E5F0097EE32 /* OrderService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderService.m; sourceTree = "<group>"; };
 		316575E21C3F62970097EE32 /* OrderServiceSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderServiceSpec.m; sourceTree = "<group>"; };
+		316575E41C3FB2DC0097EE32 /* DBService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBService.h; sourceTree = "<group>"; };
+		316575E51C3FB2DC0097EE32 /* DBService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBService.m; sourceTree = "<group>"; };
+		316575E71C3FB5280097EE32 /* OrderStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderStore.h; sourceTree = "<group>"; };
+		316575E81C3FB5280097EE32 /* OrderStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderStore.m; sourceTree = "<group>"; };
+		316575EA1C3FB7B00097EE32 /* DBServiceSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBServiceSpec.m; sourceTree = "<group>"; };
 		A7431F826FBEADE6E5D52008 /* libPods-StorePOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-StorePOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB94D9EB493BEF2E42C40249 /* Pods-StorePOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StorePOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StorePOS/Pods-StorePOS.debug.xcconfig"; sourceTree = "<group>"; };
 		C4873DFE1A7D60C26C96C6FD /* Pods-StorePOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StorePOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-StorePOS/Pods-StorePOS.release.xcconfig"; sourceTree = "<group>"; };
@@ -147,6 +155,7 @@
 			children = (
 				316575C21C3F54FF0097EE32 /* Info.plist */,
 				316575E21C3F62970097EE32 /* OrderServiceSpec.m */,
+				316575EA1C3FB7B00097EE32 /* DBServiceSpec.m */,
 			);
 			path = StorePOSTests;
 			sourceTree = "<group>";
@@ -165,6 +174,8 @@
 			children = (
 				316575DA1C3F5CAA0097EE32 /* Order.h */,
 				316575DB1C3F5CAA0097EE32 /* Order.m */,
+				316575E71C3FB5280097EE32 /* OrderStore.h */,
+				316575E81C3FB5280097EE32 /* OrderStore.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -174,6 +185,8 @@
 			children = (
 				316575DF1C3F5E5F0097EE32 /* OrderService.h */,
 				316575E01C3F5E5F0097EE32 /* OrderService.m */,
+				316575E41C3FB2DC0097EE32 /* DBService.h */,
+				316575E51C3FB2DC0097EE32 /* DBService.m */,
 			);
 			name = Service;
 			sourceTree = "<group>";
@@ -428,7 +441,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				316575AE1C3F54FF0097EE32 /* ViewController.m in Sources */,
+				316575E61C3FB2DC0097EE32 /* DBService.m in Sources */,
 				316575E11C3F5E5F0097EE32 /* OrderService.m in Sources */,
+				316575E91C3FB5280097EE32 /* OrderStore.m in Sources */,
 				316575AB1C3F54FF0097EE32 /* AppDelegate.m in Sources */,
 				316575DC1C3F5CAA0097EE32 /* Order.m in Sources */,
 				316575A81C3F54FF0097EE32 /* main.m in Sources */,
@@ -439,6 +454,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				316575EB1C3FB7B00097EE32 /* DBServiceSpec.m in Sources */,
 				316575E31C3F62970097EE32 /* OrderServiceSpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
