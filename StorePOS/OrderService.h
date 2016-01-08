@@ -12,6 +12,7 @@
 @interface OrderService : NSObject
 
 - (void)addOrder:(Order *) order;
+- (void)removeOrderAtIndex:(NSUInteger) index;
 - (NSUInteger)countOfOrders;
 - (Order *)objectInOrdersAtIndex:(NSUInteger)idx;
 @end

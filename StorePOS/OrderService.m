@@ -28,6 +28,13 @@
     [self insertObject:order inOrdersAtIndex:_orders.count];
 }
 
+- (void)removeOrderAtIndex:(NSUInteger) index
+{
+    if (_orders.count > 0) {
+        [self removeObjectFromOrdersAtIndex:index];
+    }
+}
+
 - (NSUInteger)countOfOrders
 {
     return [[self orders] count];
