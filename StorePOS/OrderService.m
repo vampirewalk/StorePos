@@ -35,6 +35,11 @@
     }
 }
 
+- (void)replaceOrderAtIndex:(NSUInteger) index withNewOrder:(Order *) newOrder
+{
+    [self replaceOrderAtIndex:index withNewOrder:newOrder];
+}
+
 - (NSUInteger)countOfOrders
 {
     return [[self orders] count];
