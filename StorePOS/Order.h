@@ -14,4 +14,7 @@
 @property (copy, nonatomic) NSString *shippingMethod;
 @property (copy, nonatomic) NSString *tableName;
 @property (assign, nonatomic) NSUInteger tableSize;
+
+- (id)initWithUUID:(NSString *) anUUID customerName:(NSString *) aCustomerName shippingMethod:(NSString *) aShippingMethod tableName:(NSString *) aTableName tableSize:(NSUInteger) aTableSize;
+
 @end

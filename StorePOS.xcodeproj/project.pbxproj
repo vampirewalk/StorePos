@@ -13,9 +13,10 @@
 		316575B11C3F54FF0097EE32 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 316575AF1C3F54FF0097EE32 /* Main.storyboard */; };
 		316575B31C3F54FF0097EE32 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 316575B21C3F54FF0097EE32 /* Assets.xcassets */; };
 		316575B61C3F54FF0097EE32 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 316575B41C3F54FF0097EE32 /* LaunchScreen.storyboard */; };
-		316575C11C3F54FF0097EE32 /* StorePOSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 316575C01C3F54FF0097EE32 /* StorePOSTests.m */; };
 		316575CC1C3F54FF0097EE32 /* StorePOSUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 316575CB1C3F54FF0097EE32 /* StorePOSUITests.m */; };
 		316575DC1C3F5CAA0097EE32 /* Order.m in Sources */ = {isa = PBXBuildFile; fileRef = 316575DB1C3F5CAA0097EE32 /* Order.m */; };
+		316575E11C3F5E5F0097EE32 /* OrderService.m in Sources */ = {isa = PBXBuildFile; fileRef = 316575E01C3F5E5F0097EE32 /* OrderService.m */; };
+		316575E31C3F62970097EE32 /* OrderServiceSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 316575E21C3F62970097EE32 /* OrderServiceSpec.m */; };
 		B7A7A641CC8EF0B16DB0DD24 /* libPods-StorePOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A7431F826FBEADE6E5D52008 /* libPods-StorePOSTests.a */; };
 		F7D522E4CCE05B706EDC1E3C /* libPods-StorePOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 03DF0A613CC3FA2DB7554DA3 /* libPods-StorePOS.a */; };
 /* End PBXBuildFile section */
@@ -51,13 +52,15 @@
 		316575B51C3F54FF0097EE32 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		316575B71C3F54FF0097EE32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		316575BC1C3F54FF0097EE32 /* StorePOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StorePOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		316575C01C3F54FF0097EE32 /* StorePOSTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StorePOSTests.m; sourceTree = "<group>"; };
 		316575C21C3F54FF0097EE32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		316575C71C3F54FF0097EE32 /* StorePOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StorePOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		316575CB1C3F54FF0097EE32 /* StorePOSUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StorePOSUITests.m; sourceTree = "<group>"; };
 		316575CD1C3F54FF0097EE32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		316575DA1C3F5CAA0097EE32 /* Order.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Order.h; sourceTree = "<group>"; };
 		316575DB1C3F5CAA0097EE32 /* Order.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Order.m; sourceTree = "<group>"; };
+		316575DF1C3F5E5F0097EE32 /* OrderService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderService.h; sourceTree = "<group>"; };
+		316575E01C3F5E5F0097EE32 /* OrderService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderService.m; sourceTree = "<group>"; };
+		316575E21C3F62970097EE32 /* OrderServiceSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderServiceSpec.m; sourceTree = "<group>"; };
 		A7431F826FBEADE6E5D52008 /* libPods-StorePOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-StorePOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB94D9EB493BEF2E42C40249 /* Pods-StorePOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StorePOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StorePOS/Pods-StorePOS.debug.xcconfig"; sourceTree = "<group>"; };
 		C4873DFE1A7D60C26C96C6FD /* Pods-StorePOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StorePOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-StorePOS/Pods-StorePOS.release.xcconfig"; sourceTree = "<group>"; };
@@ -116,6 +119,7 @@
 		316575A51C3F54FF0097EE32 /* StorePOS */ = {
 			isa = PBXGroup;
 			children = (
+				316575DE1C3F5E520097EE32 /* Service */,
 				316575D91C3F5C930097EE32 /* Model */,
 				316575A91C3F54FF0097EE32 /* AppDelegate.h */,
 				316575AA1C3F54FF0097EE32 /* AppDelegate.m */,
@@ -141,8 +145,8 @@
 		316575BF1C3F54FF0097EE32 /* StorePOSTests */ = {
 			isa = PBXGroup;
 			children = (
-				316575C01C3F54FF0097EE32 /* StorePOSTests.m */,
 				316575C21C3F54FF0097EE32 /* Info.plist */,
+				316575E21C3F62970097EE32 /* OrderServiceSpec.m */,
 			);
 			path = StorePOSTests;
 			sourceTree = "<group>";
@@ -163,6 +167,15 @@
 				316575DB1C3F5CAA0097EE32 /* Order.m */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		316575DE1C3F5E520097EE32 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				316575DF1C3F5E5F0097EE32 /* OrderService.h */,
+				316575E01C3F5E5F0097EE32 /* OrderService.m */,
+			);
+			name = Service;
 			sourceTree = "<group>";
 		};
 		728689B9BCD812560E2E9014 /* Pods */ = {
@@ -415,6 +428,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				316575AE1C3F54FF0097EE32 /* ViewController.m in Sources */,
+				316575E11C3F5E5F0097EE32 /* OrderService.m in Sources */,
 				316575AB1C3F54FF0097EE32 /* AppDelegate.m in Sources */,
 				316575DC1C3F5CAA0097EE32 /* Order.m in Sources */,
 				316575A81C3F54FF0097EE32 /* main.m in Sources */,
@@ -425,7 +439,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				316575C11C3F54FF0097EE32 /* StorePOSTests.m in Sources */,
+				316575E31C3F62970097EE32 /* OrderServiceSpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
