@@ -14,4 +14,6 @@
 - (instancetype)initWithInMemoryMode;
 - (void)addOrder:(Order *) order;
 - (Order *)queryOrderByUUID:(NSString *) uuid;
+- (BOOL)removeOrderByUUID:(NSString *) uuid;
+- (BOOL)updateOrder:(Order *) order;
 @end
