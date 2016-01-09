@@ -36,6 +36,9 @@
 		F80EDD451C4129CD00D13C69 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 316575B21C3F54FF0097EE32 /* Assets.xcassets */; };
 		F80EDD461C4129CD00D13C69 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 316575AF1C3F54FF0097EE32 /* Main.storyboard */; };
 		F80EDD511C414AA500D13C69 /* OrderSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = F80EDD501C414AA500D13C69 /* OrderSpec.m */; };
+		F80EDD541C41590500D13C69 /* OrderNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = F80EDD531C41590500D13C69 /* OrderNotification.m */; };
+		F80EDD551C41590500D13C69 /* OrderNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = F80EDD531C41590500D13C69 /* OrderNotification.m */; };
+		F80EDD5A1C415AC100D13C69 /* OrderNotificationSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = F80EDD591C415AC100D13C69 /* OrderNotificationSpec.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +95,9 @@
 		F80EDD4C1C4129CD00D13C69 /* StorePOSMaster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StorePOSMaster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F80EDD4D1C4129CE00D13C69 /* StorePOSMasterInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = StorePOSMasterInfo.plist; path = /Users/vampirewalk/develop/iOS/StorePOS/StorePOSMasterInfo.plist; sourceTree = "<absolute>"; };
 		F80EDD501C414AA500D13C69 /* OrderSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderSpec.m; sourceTree = "<group>"; };
+		F80EDD521C41590500D13C69 /* OrderNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderNotification.h; sourceTree = "<group>"; };
+		F80EDD531C41590500D13C69 /* OrderNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderNotification.m; sourceTree = "<group>"; };
+		F80EDD591C415AC100D13C69 /* OrderNotificationSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderNotificationSpec.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +192,7 @@
 				316575E21C3F62970097EE32 /* OrderServiceSpec.m */,
 				316575EA1C3FB7B00097EE32 /* DBServiceSpec.m */,
 				F80EDD501C414AA500D13C69 /* OrderSpec.m */,
+				F80EDD591C415AC100D13C69 /* OrderNotificationSpec.m */,
 			);
 			path = StorePOSTests;
 			sourceTree = "<group>";
@@ -206,6 +213,8 @@
 				316575DB1C3F5CAA0097EE32 /* Order.m */,
 				316575E71C3FB5280097EE32 /* OrderStore.h */,
 				316575E81C3FB5280097EE32 /* OrderStore.m */,
+				F80EDD521C41590500D13C69 /* OrderNotification.h */,
+				F80EDD531C41590500D13C69 /* OrderNotification.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -551,6 +560,7 @@
 			files = (
 				316575AE1C3F54FF0097EE32 /* ViewController.m in Sources */,
 				316575E61C3FB2DC0097EE32 /* DBService.m in Sources */,
+				F80EDD541C41590500D13C69 /* OrderNotification.m in Sources */,
 				316575E11C3F5E5F0097EE32 /* OrderService.m in Sources */,
 				316575E91C3FB5280097EE32 /* OrderStore.m in Sources */,
 				316575AB1C3F54FF0097EE32 /* AppDelegate.m in Sources */,
@@ -564,6 +574,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F80EDD5A1C415AC100D13C69 /* OrderNotificationSpec.m in Sources */,
 				F80EDD511C414AA500D13C69 /* OrderSpec.m in Sources */,
 				316575EB1C3FB7B00097EE32 /* DBServiceSpec.m in Sources */,
 				316575E31C3F62970097EE32 /* OrderServiceSpec.m in Sources */,
@@ -584,6 +595,7 @@
 			files = (
 				F80EDD391C4129CD00D13C69 /* ViewController.m in Sources */,
 				F80EDD3A1C4129CD00D13C69 /* DBService.m in Sources */,
+				F80EDD551C41590500D13C69 /* OrderNotification.m in Sources */,
 				F80EDD3B1C4129CD00D13C69 /* OrderService.m in Sources */,
 				F80EDD3C1C4129CD00D13C69 /* OrderStore.m in Sources */,
 				F80EDD3D1C4129CD00D13C69 /* AppDelegate.m in Sources */,
