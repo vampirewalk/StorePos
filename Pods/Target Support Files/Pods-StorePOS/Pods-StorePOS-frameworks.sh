@@ -82,3 +82,20 @@ strip_invalid_archs() {
   fi
 }
 
+
+if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "Pods-StorePOS/OMGHTTPURLRQ.framework"
+  install_framework "Pods-StorePOS/PocketSocket.framework"
+  install_framework "Pods-StorePOS/PromiseKit.framework"
+  install_framework "Pods-StorePOS/PureLayout.framework"
+  install_framework "Pods-StorePOS/Realm.framework"
+  install_framework "Pods-StorePOS/YYModel.framework"
+fi
+if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "Pods-StorePOS/OMGHTTPURLRQ.framework"
+  install_framework "Pods-StorePOS/PocketSocket.framework"
+  install_framework "Pods-StorePOS/PromiseKit.framework"
+  install_framework "Pods-StorePOS/PureLayout.framework"
+  install_framework "Pods-StorePOS/Realm.framework"
+  install_framework "Pods-StorePOS/YYModel.framework"
+fi

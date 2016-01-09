@@ -1,6 +1,10 @@
 # Acknowledgements
 This application makes use of the following third party libraries:
 
+## OMGHTTPURLRQ
+
+See README.markdown for full license text.
+
 ## PocketSocket
 
 Copyright 2014 Zwopple Limited
@@ -16,6 +20,10 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
+
+## PromiseKit
+
+@see README
 
 ## PureLayout
 

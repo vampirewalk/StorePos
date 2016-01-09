@@ -82,3 +82,14 @@ strip_invalid_archs() {
   fi
 }
 
+
+if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "Pods-StorePOSTests/Expecta.framework"
+  install_framework "Pods-StorePOSTests/OCMock.framework"
+  install_framework "Pods-StorePOSTests/Specta.framework"
+fi
+if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "Pods-StorePOSTests/Expecta.framework"
+  install_framework "Pods-StorePOSTests/OCMock.framework"
+  install_framework "Pods-StorePOSTests/Specta.framework"
+fi

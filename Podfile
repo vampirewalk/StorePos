@@ -1,10 +1,12 @@
 platform :ios, "8.0"
+use_frameworks!
 
 target :StorePOS, :exclusive => true do
     pod 'Realm'
     pod 'YYModel'
     pod 'PocketSocket'
     pod 'PureLayout'
+	pod 'PromiseKit'
 end
 
 target :StorePOSTests, :exclusive => true do

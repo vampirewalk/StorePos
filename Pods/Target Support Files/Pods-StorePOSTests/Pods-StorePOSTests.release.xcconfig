@@ -1,6 +1,6 @@
-FRAMEWORK_SEARCH_PATHS = $(inherited)  "$(PLATFORM_DIR)/Developer/Library/Frameworks"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/Expecta" "${PODS_ROOT}/Headers/Public/OCMock" "${PODS_ROOT}/Headers/Public/PocketSocket" "${PODS_ROOT}/Headers/Public/PureLayout" "${PODS_ROOT}/Headers/Public/Realm" "${PODS_ROOT}/Headers/Public/Specta" "${PODS_ROOT}/Headers/Public/YYModel"
-OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/Expecta" -isystem "${PODS_ROOT}/Headers/Public/OCMock" -isystem "${PODS_ROOT}/Headers/Public/PocketSocket" -isystem "${PODS_ROOT}/Headers/Public/PureLayout" -isystem "${PODS_ROOT}/Headers/Public/Realm" -isystem "${PODS_ROOT}/Headers/Public/Specta" -isystem "${PODS_ROOT}/Headers/Public/YYModel"
-OTHER_LDFLAGS = $(inherited) -ObjC -l"Expecta" -l"OCMock" -l"Specta" -framework "Foundation" -framework "XCTest"
+LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
+OTHER_CFLAGS = $(inherited) -iquote "$CONFIGURATION_BUILD_DIR/Expecta.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/OCMock.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/Specta.framework/Headers"
+OTHER_LDFLAGS = $(inherited) -framework "Expecta" -framework "OCMock" -framework "Specta"
+PODS_FRAMEWORK_BUILD_PATH = $(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Pods-StorePOSTests
 PODS_ROOT = ${SRCROOT}/Pods

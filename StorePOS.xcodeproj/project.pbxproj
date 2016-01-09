@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C305E753E9597998F121CCB /* Pods_StorePOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 797A355EB0C0DFE6D3F9D526 /* Pods_StorePOS.framework */; };
 		316575A81C3F54FF0097EE32 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 316575A71C3F54FF0097EE32 /* main.m */; };
 		316575AB1C3F54FF0097EE32 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 316575AA1C3F54FF0097EE32 /* AppDelegate.m */; };
 		316575AE1C3F54FF0097EE32 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 316575AD1C3F54FF0097EE32 /* ViewController.m */; };
@@ -20,8 +21,7 @@
 		316575E61C3FB2DC0097EE32 /* DBService.m in Sources */ = {isa = PBXBuildFile; fileRef = 316575E51C3FB2DC0097EE32 /* DBService.m */; };
 		316575E91C3FB5280097EE32 /* OrderStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 316575E81C3FB5280097EE32 /* OrderStore.m */; };
 		316575EB1C3FB7B00097EE32 /* DBServiceSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 316575EA1C3FB7B00097EE32 /* DBServiceSpec.m */; };
-		B7A7A641CC8EF0B16DB0DD24 /* libPods-StorePOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A7431F826FBEADE6E5D52008 /* libPods-StorePOSTests.a */; };
-		F7D522E4CCE05B706EDC1E3C /* libPods-StorePOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 03DF0A613CC3FA2DB7554DA3 /* libPods-StorePOS.a */; };
+		9FA181801AA2DCBCF2F29BCB /* Pods_StorePOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C6EF8975B3E83835904C185 /* Pods_StorePOSTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,7 +42,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		03DF0A613CC3FA2DB7554DA3 /* libPods-StorePOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-StorePOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		22BAC57B9F1F9CF251A380B0 /* Pods-StorePOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StorePOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StorePOSTests/Pods-StorePOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		316575A31C3F54FF0097EE32 /* StorePOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StorePOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		316575A71C3F54FF0097EE32 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -69,7 +68,8 @@
 		316575E71C3FB5280097EE32 /* OrderStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderStore.h; sourceTree = "<group>"; };
 		316575E81C3FB5280097EE32 /* OrderStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderStore.m; sourceTree = "<group>"; };
 		316575EA1C3FB7B00097EE32 /* DBServiceSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBServiceSpec.m; sourceTree = "<group>"; };
-		A7431F826FBEADE6E5D52008 /* libPods-StorePOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-StorePOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		797A355EB0C0DFE6D3F9D526 /* Pods_StorePOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StorePOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7C6EF8975B3E83835904C185 /* Pods_StorePOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StorePOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB94D9EB493BEF2E42C40249 /* Pods-StorePOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StorePOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StorePOS/Pods-StorePOS.debug.xcconfig"; sourceTree = "<group>"; };
 		C4873DFE1A7D60C26C96C6FD /* Pods-StorePOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StorePOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-StorePOS/Pods-StorePOS.release.xcconfig"; sourceTree = "<group>"; };
 		EFD801121A614DDBC381372F /* Pods-StorePOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StorePOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-StorePOSTests/Pods-StorePOSTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -80,7 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F7D522E4CCE05B706EDC1E3C /* libPods-StorePOS.a in Frameworks */,
+				2C305E753E9597998F121CCB /* Pods_StorePOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,7 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B7A7A641CC8EF0B16DB0DD24 /* libPods-StorePOSTests.a in Frameworks */,
+				9FA181801AA2DCBCF2F29BCB /* Pods_StorePOSTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -205,8 +205,8 @@
 		79CA0E6DE50BB75518693A3B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				03DF0A613CC3FA2DB7554DA3 /* libPods-StorePOS.a */,
-				A7431F826FBEADE6E5D52008 /* libPods-StorePOSTests.a */,
+				797A355EB0C0DFE6D3F9D526 /* Pods_StorePOS.framework */,
+				7C6EF8975B3E83835904C185 /* Pods_StorePOSTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
