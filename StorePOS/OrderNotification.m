@@ -11,6 +11,11 @@
 
 @implementation OrderNotification
 
++ (instancetype)orderNotificationWithJSON:(NSString *) JSON
+{
+    return [OrderNotification yy_modelWithJSON:JSON];
+}
+
 - (id)initWithOperation:(Operation)anOperation order:(Order*)anOrder
 {
     self = [super init];

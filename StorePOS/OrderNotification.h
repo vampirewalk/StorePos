@@ -19,6 +19,7 @@ typedef enum : NSUInteger {
 @property (assign, nonatomic) Operation operation;
 @property (strong, nonatomic) Order *order;
 
++ (instancetype)orderNotificationWithJSON:(NSString *) JSON;
 - (instancetype)initWithOperation:(Operation)anOperation order:(Order*)anOrder;
 - (NSString *)toJSONString;
 @end
