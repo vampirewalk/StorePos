@@ -11,6 +11,11 @@
 
 @implementation Order
 
++ (instancetype)orderWithJSONString:(NSString *) JSON
+{
+    return [Order yy_modelWithJSON:JSON];
+}
+
 - (instancetype)initWithUUID:(NSString *) anUUID customerName:(NSString *) aCustomerName shippingMethod:(NSString *) aShippingMethod tableName:(NSString *) aTableName tableSize:(NSInteger) aTableSize created:(NSDate *) aCreated
 {
     if ((self = [super init])) {

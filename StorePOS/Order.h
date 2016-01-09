@@ -16,6 +16,7 @@
 @property (assign, nonatomic) NSInteger tableSize;
 @property (strong, nonatomic) NSDate *created;
 
++ (instancetype)orderWithJSONString:(NSString *) JSON;
 - (instancetype)initWithUUID:(NSString *) anUUID customerName:(NSString *) aCustomerName shippingMethod:(NSString *) aShippingMethod tableName:(NSString *) aTableName tableSize:(NSInteger) aTableSize created:(NSDate *) aCreated;
 
 - (NSString *)toJSONString;

@@ -40,6 +40,22 @@ describe(@"Order", ^{
         expect(output).to.equal(expetedJSON);
     });
     
+    it(@"init with JSON", ^{
+        NSString *JSON = @"{\"uuid\":\"E1CF0738-9400-4335-98AD-F882096C23C1\",\"customerName\":\"Kevin\",\"created\":\"2016-01-09T22:41:37+0800\",\"shippingMethod\":\"DHL\",\"tableSize\":-1}";
+        
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        formatter.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
+        formatter.dateFormat = @"yyyy-MM-dd'T'HH:mm:ssZ";
+        NSDate *dateInJSON = [formatter dateFromString:@"2016-01-09T22:41:37+0800"];
+        
+        Order *orderWithJSON = [Order orderWithJSONString:JSON];
+        expect(orderWithJSON.uuid).to.equal(@"E1CF0738-9400-4335-98AD-F882096C23C1");
+        expect(orderWithJSON.customerName).to.equal(@"Kevin");
+        expect(orderWithJSON.shippingMethod).to.equal(@"DHL");
+        expect(orderWithJSON.tableSize).to.equal(-1);
+        expect(orderWithJSON.created).to.equal(dateInJSON);
+    });
+    
     afterEach(^{
         order = nil;
         uuid = nil;
