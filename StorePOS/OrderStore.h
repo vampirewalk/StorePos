@@ -16,6 +16,8 @@
 @property (copy, nonatomic) NSString *shippingMethod;
 @property (copy, nonatomic) NSString *tableName;
 @property (assign, nonatomic) NSInteger tableSize;
+@property (strong, nonatomic) NSDate *created;
+
 - (instancetype)initWithOrder:(Order *) order;
 - (Order *)order;
 @end

@@ -10,7 +10,7 @@
 
 @implementation Order
 
-- (id)initWithUUID:(NSString *) anUUID customerName:(NSString *) aCustomerName shippingMethod:(NSString *) aShippingMethod tableName:(NSString *) aTableName tableSize:(NSInteger) aTableSize
+- (instancetype)initWithUUID:(NSString *) anUUID customerName:(NSString *) aCustomerName shippingMethod:(NSString *) aShippingMethod tableName:(NSString *) aTableName tableSize:(NSInteger) aTableSize created:(NSDate *) aCreated
 {
     if ((self = [super init])) {
         _uuid = [anUUID copy];
@@ -18,6 +18,7 @@
         _shippingMethod = [aShippingMethod copy];
         _tableName = [aTableName copy];
         _tableSize = aTableSize;
+        _created = aCreated;
     }
     return self;
 }

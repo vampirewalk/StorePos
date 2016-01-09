@@ -25,7 +25,7 @@ describe(@"OrderService", ^{
     
     beforeEach(^{
         orderService = [[OrderService alloc] init];
-        newOrder = [[Order alloc] initWithUUID:[NSUUID UUID].UUIDString customerName:@"Kevin" shippingMethod:@"DHL" tableName:nil tableSize:-1];
+        newOrder = [[Order alloc] initWithUUID:[NSUUID UUID].UUIDString customerName:@"Kevin" shippingMethod:@"DHL" tableName:nil tableSize:-1 created:[NSDate date]];
     });
     
     it(@"add a new order", ^{

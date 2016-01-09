@@ -20,6 +20,7 @@
         _shippingMethod = [order.shippingMethod copy];
         _tableName = [order.tableName copy];
         _tableSize = order.tableSize;
+        _created = order.created;
     }
     return self;
 }
@@ -30,7 +31,7 @@
 
 - (Order *)order
 {
-    Order *order = [[Order alloc] initWithUUID:self.uuid customerName:self.customerName shippingMethod:self.shippingMethod tableName:self.tableName tableSize:self.tableSize];
+    Order *order = [[Order alloc] initWithUUID:self.uuid customerName:self.customerName shippingMethod:self.shippingMethod tableName:self.tableName tableSize:self.tableSize created:self.created];
     return order;
 }
 

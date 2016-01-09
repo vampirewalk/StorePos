@@ -55,15 +55,29 @@ static NSString *dbName = @"POSDatabase.realm";
 
 - (Order *)queryOrderByUUID:(NSString *) uuid
 {
+    RLMRealm *realm = [self realm];
     NSPredicate *pred = [NSPredicate predicateWithFormat:@"uuid = %@", uuid];
-    RLMResults *results = [OrderStore objectsInRealm:[self realm] withPredicate:pred];
+    RLMResults *results = [OrderStore objectsInRealm:realm withPredicate:pred];
     if (results.count > 0) {
         OrderStore *store = results.firstObject;
+        
         return store.order;
     }
     else {
         return nil;
     }
+}
+
+- (NSArray<Order *> *)queryAllOrdersBySortCriteria:(SortCriteria) criteria
+{
+    NSMutableArray *orders = [NSMutableArray array];
+    RLMRealm *realm = [self realm];
+    RLMResults<OrderStore *> *orderStores = [OrderStore allObjectsInRealm:realm];
+    [orderStores sortedResultsUsingProperty:@"created" ascending:YES];
+    for (OrderStore *store in orderStores) {
+        [orders addObject:store.order];
+    }
+    return [orders copy];
 }
 
 - (void)addOrder:(Order *) order
