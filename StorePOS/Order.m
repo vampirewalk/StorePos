@@ -7,6 +7,7 @@
 //
 
 #import "Order.h"
+#import <YYModel/YYModel.h>
 
 @implementation Order
 
@@ -21,6 +22,11 @@
         _created = aCreated;
     }
     return self;
+}
+
+- (NSString *)toJSONString
+{
+    return [self yy_modelToJSONString];
 }
 
 @end
