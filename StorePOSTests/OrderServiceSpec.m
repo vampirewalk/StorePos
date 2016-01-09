@@ -12,6 +12,7 @@
 #import "OrderService.h"
 #import <OCMock/OCMock.h>
 #import "DBService.h"
+#import "NetworkService.h"
 
 SpecBegin(OrderService)
 
@@ -20,6 +21,7 @@ describe(@"OrderService", ^{
     __block OrderService *orderService = nil;
     __block Order *newOrder = nil;
     __block id dbServiceMock;
+    __block id networkServiceMock;
     
     beforeAll(^{
 
@@ -27,7 +29,8 @@ describe(@"OrderService", ^{
     
     beforeEach(^{
         dbServiceMock = OCMClassMock([DBService class]);
-        orderService = [[OrderService alloc] initWithDBService:dbServiceMock];
+        networkServiceMock = OCMClassMock([NetworkService class]);
+        orderService = [[OrderService alloc] initWithDBService:dbServiceMock networkService:networkServiceMock];
         newOrder = [[Order alloc] initWithUUID:[NSUUID UUID].UUIDString customerName:@"Kevin" shippingMethod:@"DHL" tableName:nil tableSize:-1 created:[NSDate date]];
     });
     

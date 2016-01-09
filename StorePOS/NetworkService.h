@@ -14,5 +14,7 @@ typedef enum : NSUInteger {
 } Configuration;
 
 @interface NetworkService : NSObject
+- (void)startService;
+- (void)autoConnectToBonjourServiceNamed:(NSString*)serviceName;
 
 @end

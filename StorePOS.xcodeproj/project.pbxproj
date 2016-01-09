@@ -23,6 +23,18 @@
 		316575EB1C3FB7B00097EE32 /* DBServiceSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 316575EA1C3FB7B00097EE32 /* DBServiceSpec.m */; };
 		9FA181801AA2DCBCF2F29BCB /* Pods_StorePOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C6EF8975B3E83835904C185 /* Pods_StorePOSTests.framework */; };
 		F80EDD1A1C40EAE500D13C69 /* NetworkService.m in Sources */ = {isa = PBXBuildFile; fileRef = F80EDD191C40EAE500D13C69 /* NetworkService.m */; };
+		F80EDD391C4129CD00D13C69 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 316575AD1C3F54FF0097EE32 /* ViewController.m */; };
+		F80EDD3A1C4129CD00D13C69 /* DBService.m in Sources */ = {isa = PBXBuildFile; fileRef = 316575E51C3FB2DC0097EE32 /* DBService.m */; };
+		F80EDD3B1C4129CD00D13C69 /* OrderService.m in Sources */ = {isa = PBXBuildFile; fileRef = 316575E01C3F5E5F0097EE32 /* OrderService.m */; };
+		F80EDD3C1C4129CD00D13C69 /* OrderStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 316575E81C3FB5280097EE32 /* OrderStore.m */; };
+		F80EDD3D1C4129CD00D13C69 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 316575AA1C3F54FF0097EE32 /* AppDelegate.m */; };
+		F80EDD3E1C4129CD00D13C69 /* Order.m in Sources */ = {isa = PBXBuildFile; fileRef = 316575DB1C3F5CAA0097EE32 /* Order.m */; };
+		F80EDD3F1C4129CD00D13C69 /* NetworkService.m in Sources */ = {isa = PBXBuildFile; fileRef = F80EDD191C40EAE500D13C69 /* NetworkService.m */; };
+		F80EDD401C4129CD00D13C69 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 316575A71C3F54FF0097EE32 /* main.m */; };
+		F80EDD421C4129CD00D13C69 /* Pods_StorePOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 797A355EB0C0DFE6D3F9D526 /* Pods_StorePOS.framework */; };
+		F80EDD441C4129CD00D13C69 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 316575B41C3F54FF0097EE32 /* LaunchScreen.storyboard */; };
+		F80EDD451C4129CD00D13C69 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 316575B21C3F54FF0097EE32 /* Assets.xcassets */; };
+		F80EDD461C4129CD00D13C69 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 316575AF1C3F54FF0097EE32 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +88,8 @@
 		EFD801121A614DDBC381372F /* Pods-StorePOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StorePOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-StorePOSTests/Pods-StorePOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		F80EDD181C40EAE500D13C69 /* NetworkService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkService.h; sourceTree = "<group>"; };
 		F80EDD191C40EAE500D13C69 /* NetworkService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkService.m; sourceTree = "<group>"; };
+		F80EDD4C1C4129CD00D13C69 /* StorePOSMaster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StorePOSMaster.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F80EDD4D1C4129CE00D13C69 /* StorePOSMasterInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = StorePOSMasterInfo.plist; path = /Users/vampirewalk/develop/iOS/StorePOS/StorePOSMasterInfo.plist; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +116,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F80EDD411C4129CD00D13C69 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F80EDD421C4129CD00D13C69 /* Pods_StorePOS.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -114,6 +136,7 @@
 				316575A41C3F54FF0097EE32 /* Products */,
 				728689B9BCD812560E2E9014 /* Pods */,
 				79CA0E6DE50BB75518693A3B /* Frameworks */,
+				F80EDD4D1C4129CE00D13C69 /* StorePOSMasterInfo.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -123,6 +146,7 @@
 				316575A31C3F54FF0097EE32 /* StorePOS.app */,
 				316575BC1C3F54FF0097EE32 /* StorePOSTests.xctest */,
 				316575C71C3F54FF0097EE32 /* StorePOSUITests.xctest */,
+				F80EDD4C1C4129CD00D13C69 /* StorePOSMaster.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -278,6 +302,26 @@
 			productReference = 316575C71C3F54FF0097EE32 /* StorePOSUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		F80EDD361C4129CD00D13C69 /* StorePOSMaster */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F80EDD491C4129CD00D13C69 /* Build configuration list for PBXNativeTarget "StorePOSMaster" */;
+			buildPhases = (
+				F80EDD371C4129CD00D13C69 /* Check Pods Manifest.lock */,
+				F80EDD381C4129CD00D13C69 /* Sources */,
+				F80EDD411C4129CD00D13C69 /* Frameworks */,
+				F80EDD431C4129CD00D13C69 /* Resources */,
+				F80EDD471C4129CD00D13C69 /* Embed Pods Frameworks */,
+				F80EDD481C4129CD00D13C69 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = StorePOSMaster;
+			productName = StorePOS;
+			productReference = F80EDD4C1C4129CD00D13C69 /* StorePOSMaster.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -315,6 +359,7 @@
 			projectRoot = "";
 			targets = (
 				316575A21C3F54FF0097EE32 /* StorePOS */,
+				F80EDD361C4129CD00D13C69 /* StorePOSMaster */,
 				316575BB1C3F54FF0097EE32 /* StorePOSTests */,
 				316575C61C3F54FF0097EE32 /* StorePOSUITests */,
 			);
@@ -343,6 +388,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F80EDD431C4129CD00D13C69 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F80EDD441C4129CD00D13C69 /* LaunchScreen.storyboard in Resources */,
+				F80EDD451C4129CD00D13C69 /* Assets.xcassets in Resources */,
+				F80EDD461C4129CD00D13C69 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -439,6 +494,51 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		F80EDD371C4129CD00D13C69 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F80EDD471C4129CD00D13C69 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-StorePOS/Pods-StorePOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F80EDD481C4129CD00D13C69 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-StorePOS/Pods-StorePOS-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -471,6 +571,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				316575CC1C3F54FF0097EE32 /* StorePOSUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F80EDD381C4129CD00D13C69 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F80EDD391C4129CD00D13C69 /* ViewController.m in Sources */,
+				F80EDD3A1C4129CD00D13C69 /* DBService.m in Sources */,
+				F80EDD3B1C4129CD00D13C69 /* OrderService.m in Sources */,
+				F80EDD3C1C4129CD00D13C69 /* OrderStore.m in Sources */,
+				F80EDD3D1C4129CD00D13C69 /* AppDelegate.m in Sources */,
+				F80EDD3E1C4129CD00D13C69 /* Order.m in Sources */,
+				F80EDD3F1C4129CD00D13C69 /* NetworkService.m in Sources */,
+				F80EDD401C4129CD00D13C69 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -667,6 +782,42 @@
 			};
 			name = Release;
 		};
+		F80EDD4A1C4129CD00D13C69 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AB94D9EB493BEF2E42C40249 /* Pods-StorePOS.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"MasterConfig=1",
+				);
+				INFOPLIST_FILE = StorePOSMasterInfo.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = net.vampirewalk.StorePOS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		F80EDD4B1C4129CD00D13C69 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C4873DFE1A7D60C26C96C6FD /* Pods-StorePOS.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"MasterConfig=1",
+				);
+				INFOPLIST_FILE = StorePOSMasterInfo.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = net.vampirewalk.StorePOS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -702,6 +853,15 @@
 			buildConfigurations = (
 				316575D71C3F54FF0097EE32 /* Debug */,
 				316575D81C3F54FF0097EE32 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F80EDD491C4129CD00D13C69 /* Build configuration list for PBXNativeTarget "StorePOSMaster" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F80EDD4A1C4129CD00D13C69 /* Debug */,
+				F80EDD4B1C4129CD00D13C69 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

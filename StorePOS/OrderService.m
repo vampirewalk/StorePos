@@ -8,20 +8,29 @@
 
 #import "OrderService.h"
 #import "DBService.h"
+#import "NetworkService.h"
 
 @interface OrderService ()
 @property (strong, nonatomic) NSMutableArray<Order *> *orders;
 @property (strong, nonatomic) DBService *dbService;
+@property (strong, nonatomic) NetworkService *networkService;
 @end
 
 @implementation OrderService
 
-- (instancetype)initWithDBService:(DBService *) dbService
+- (instancetype)initWithDBService:(DBService *) dbService networkService:(NetworkService *) networkService
 {
     self = [super init];
     if (self) {
         _orders = [NSMutableArray array];
         _dbService = dbService;
+        _networkService = networkService;
+#ifdef MasterConfig
+        [_networkService startService];
+#else
+        [_networkService autoConnectToBonjourServiceNamed:@"POSMaster"];
+#endif
+        
     }
     return self;
 }

@@ -136,7 +136,7 @@ static NSString *const POSBonjourServiceType = @"_pos._tcp";
         [_netService stop];
         _netService = nil;
     }
-    _netService = [[NSNetService alloc] initWithDomain:@"local." type:POSBonjourServiceType name:@"POSMaster"];
+    _netService = [[NSNetService alloc] initWithDomain:@"local." type:POSBonjourServiceType name:@"POSMaster" port:80];
     if(_netService)
     {
         [_netService setDelegate:self];
@@ -148,7 +148,7 @@ static NSString *const POSBonjourServiceType = @"_pos._tcp";
     }
 }
 
-- (void)autoConnectToBonjourServiceNamed:(NSString*)serviceName;
+- (void)autoConnectToBonjourServiceNamed:(NSString*)serviceName
 {
     if (_serviceBrowser) {
         return;

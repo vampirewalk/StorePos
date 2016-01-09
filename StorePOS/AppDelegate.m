@@ -7,9 +7,14 @@
 //
 
 #import "AppDelegate.h"
+#import "OrderService.h"
+#import "DBService.h"
+#import "NetworkService.h"
 
 @interface AppDelegate ()
-
+@property (strong, nonatomic) OrderService *orderService;
+@property (strong, nonatomic) DBService *dbService;
+@property (strong, nonatomic) NetworkService *networkService;
 @end
 
 @implementation AppDelegate
@@ -17,6 +22,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    self.dbService = [[DBService alloc] initWithPersistentMode];
+    self.networkService = [[NetworkService alloc] init];
+    self.orderService = [[OrderService alloc] initWithDBService:_dbService networkService:_networkService];
+    
     return YES;
 }
 

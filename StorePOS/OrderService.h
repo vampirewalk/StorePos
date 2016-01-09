@@ -10,7 +10,7 @@
 #import "Order.h"
 #import <PromiseKit/PromiseKit.h>
 
-@class DBService;
+@class DBService, NetworkService;
 
 @interface OrderService : NSObject
 
@@ -19,5 +19,5 @@
 - (NSUInteger)countOfOrders;
 - (Order *)objectInOrdersAtIndex:(NSUInteger)idx;
 
-- (instancetype)initWithDBService:(DBService *) dbService;
+- (instancetype)initWithDBService:(DBService *) dbService networkService:(NetworkService *) networkService;
 @end
