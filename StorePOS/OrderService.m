@@ -7,25 +7,32 @@
 //
 
 #import "OrderService.h"
+#import "DBService.h"
 
 @interface OrderService ()
 @property (strong, nonatomic) NSMutableArray<Order *> *orders;
+@property (strong, nonatomic) DBService *dbService;
 @end
 
 @implementation OrderService
 
-- (instancetype)init
+- (instancetype)initWithDBService:(DBService *) dbService
 {
     self = [super init];
     if (self) {
         _orders = [NSMutableArray array];
+        _dbService = dbService;
     }
     return self;
 }
 
-- (void)addOrder:(Order *) order
+- (AnyPromise *)addOrder:(Order *) order
 {
-    [self insertObject:order inOrdersAtIndex:_orders.count];
+    return dispatch_promise(^{
+        return [self insertObject:order inOrdersAtIndex:_orders.count];
+    }).thenInBackground(^{
+        return [_dbService addOrder:order];
+    });
 }
 
 - (void)removeOrderAtIndex:(NSUInteger) index

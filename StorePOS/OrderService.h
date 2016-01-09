@@ -8,11 +8,16 @@
 
 #import <Foundation/Foundation.h>
 #import "Order.h"
+#import <PromiseKit/PromiseKit.h>
+
+@class DBService;
 
 @interface OrderService : NSObject
 
-- (void)addOrder:(Order *) order;
+- (AnyPromise *)addOrder:(Order *) order;
 - (void)removeOrderAtIndex:(NSUInteger) index;
 - (NSUInteger)countOfOrders;
 - (Order *)objectInOrdersAtIndex:(NSUInteger)idx;
+
+- (instancetype)initWithDBService:(DBService *) dbService;
 @end
