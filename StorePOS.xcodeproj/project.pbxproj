@@ -10,7 +10,6 @@
 		2C305E753E9597998F121CCB /* Pods_StorePOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 797A355EB0C0DFE6D3F9D526 /* Pods_StorePOS.framework */; };
 		316575A81C3F54FF0097EE32 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 316575A71C3F54FF0097EE32 /* main.m */; };
 		316575AB1C3F54FF0097EE32 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 316575AA1C3F54FF0097EE32 /* AppDelegate.m */; };
-		316575AE1C3F54FF0097EE32 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 316575AD1C3F54FF0097EE32 /* ViewController.m */; };
 		316575B11C3F54FF0097EE32 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 316575AF1C3F54FF0097EE32 /* Main.storyboard */; };
 		316575B31C3F54FF0097EE32 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 316575B21C3F54FF0097EE32 /* Assets.xcassets */; };
 		316575B61C3F54FF0097EE32 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 316575B41C3F54FF0097EE32 /* LaunchScreen.storyboard */; };
@@ -22,7 +21,6 @@
 		316575E91C3FB5280097EE32 /* OrderStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 316575E81C3FB5280097EE32 /* OrderStore.m */; };
 		316575EB1C3FB7B00097EE32 /* DBServiceSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 316575EA1C3FB7B00097EE32 /* DBServiceSpec.m */; };
 		9FA181801AA2DCBCF2F29BCB /* Pods_StorePOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C6EF8975B3E83835904C185 /* Pods_StorePOSTests.framework */; };
-		F80EDD391C4129CD00D13C69 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 316575AD1C3F54FF0097EE32 /* ViewController.m */; };
 		F80EDD3A1C4129CD00D13C69 /* DBService.m in Sources */ = {isa = PBXBuildFile; fileRef = 316575E51C3FB2DC0097EE32 /* DBService.m */; };
 		F80EDD3B1C4129CD00D13C69 /* OrderService.m in Sources */ = {isa = PBXBuildFile; fileRef = 316575E01C3F5E5F0097EE32 /* OrderService.m */; };
 		F80EDD3C1C4129CD00D13C69 /* OrderStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 316575E81C3FB5280097EE32 /* OrderStore.m */; };
@@ -45,6 +43,10 @@
 		F89EAF3A1C425E5A0000AF57 /* MasterInstance.m in Sources */ = {isa = PBXBuildFile; fileRef = F89EAF381C425E5A0000AF57 /* MasterInstance.m */; };
 		F89EAF3D1C425E660000AF57 /* SlaveInstance.m in Sources */ = {isa = PBXBuildFile; fileRef = F89EAF3C1C425E660000AF57 /* SlaveInstance.m */; };
 		F89EAF3E1C425E660000AF57 /* SlaveInstance.m in Sources */ = {isa = PBXBuildFile; fileRef = F89EAF3C1C425E660000AF57 /* SlaveInstance.m */; };
+		F89EAF451C4290C30000AF57 /* OrderListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F89EAF441C4290C30000AF57 /* OrderListTableViewController.m */; };
+		F89EAF461C4290C30000AF57 /* OrderListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F89EAF441C4290C30000AF57 /* OrderListTableViewController.m */; };
+		F89EAF491C4292470000AF57 /* EditOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F89EAF481C4292470000AF57 /* EditOrderViewController.m */; };
+		F89EAF4A1C4292470000AF57 /* EditOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F89EAF481C4292470000AF57 /* EditOrderViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,8 +72,6 @@
 		316575A71C3F54FF0097EE32 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		316575A91C3F54FF0097EE32 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		316575AA1C3F54FF0097EE32 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		316575AC1C3F54FF0097EE32 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		316575AD1C3F54FF0097EE32 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		316575B01C3F54FF0097EE32 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		316575B21C3F54FF0097EE32 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		316575B51C3F54FF0097EE32 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -112,6 +112,10 @@
 		F89EAF3B1C425E660000AF57 /* SlaveInstance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlaveInstance.h; sourceTree = "<group>"; };
 		F89EAF3C1C425E660000AF57 /* SlaveInstance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlaveInstance.m; sourceTree = "<group>"; };
 		F89EAF421C4262460000AF57 /* Instancing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Instancing.h; sourceTree = "<group>"; };
+		F89EAF431C4290C30000AF57 /* OrderListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderListTableViewController.h; sourceTree = "<group>"; };
+		F89EAF441C4290C30000AF57 /* OrderListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderListTableViewController.m; sourceTree = "<group>"; };
+		F89EAF471C4292470000AF57 /* EditOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditOrderViewController.h; sourceTree = "<group>"; };
+		F89EAF481C4292470000AF57 /* EditOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditOrderViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,14 +184,16 @@
 				316575D91C3F5C930097EE32 /* Model */,
 				316575A91C3F54FF0097EE32 /* AppDelegate.h */,
 				316575AA1C3F54FF0097EE32 /* AppDelegate.m */,
-				316575AC1C3F54FF0097EE32 /* ViewController.h */,
-				316575AD1C3F54FF0097EE32 /* ViewController.m */,
 				316575AF1C3F54FF0097EE32 /* Main.storyboard */,
 				316575B21C3F54FF0097EE32 /* Assets.xcassets */,
 				316575B41C3F54FF0097EE32 /* LaunchScreen.storyboard */,
 				316575B71C3F54FF0097EE32 /* Info.plist */,
 				316575A61C3F54FF0097EE32 /* Supporting Files */,
 				F81E01EF1C42206800E23B2B /* Constant.h */,
+				F89EAF431C4290C30000AF57 /* OrderListTableViewController.h */,
+				F89EAF441C4290C30000AF57 /* OrderListTableViewController.m */,
+				F89EAF471C4292470000AF57 /* EditOrderViewController.h */,
+				F89EAF481C4292470000AF57 /* EditOrderViewController.m */,
 			);
 			path = StorePOS;
 			sourceTree = "<group>";
@@ -604,11 +610,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				316575AE1C3F54FF0097EE32 /* ViewController.m in Sources */,
 				316575E61C3FB2DC0097EE32 /* DBService.m in Sources */,
 				F81E01ED1C41F42400E23B2B /* DiscoveryService.m in Sources */,
 				F80EDD541C41590500D13C69 /* OrderNotification.m in Sources */,
 				F89EAF391C425E5A0000AF57 /* MasterInstance.m in Sources */,
+				F89EAF491C4292470000AF57 /* EditOrderViewController.m in Sources */,
+				F89EAF451C4290C30000AF57 /* OrderListTableViewController.m in Sources */,
 				316575E11C3F5E5F0097EE32 /* OrderService.m in Sources */,
 				316575E91C3FB5280097EE32 /* OrderStore.m in Sources */,
 				316575AB1C3F54FF0097EE32 /* AppDelegate.m in Sources */,
@@ -642,11 +649,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F80EDD391C4129CD00D13C69 /* ViewController.m in Sources */,
 				F80EDD3A1C4129CD00D13C69 /* DBService.m in Sources */,
 				F81E01EE1C41F42400E23B2B /* DiscoveryService.m in Sources */,
 				F80EDD551C41590500D13C69 /* OrderNotification.m in Sources */,
 				F89EAF3A1C425E5A0000AF57 /* MasterInstance.m in Sources */,
+				F89EAF4A1C4292470000AF57 /* EditOrderViewController.m in Sources */,
+				F89EAF461C4290C30000AF57 /* OrderListTableViewController.m in Sources */,
 				F80EDD3B1C4129CD00D13C69 /* OrderService.m in Sources */,
 				F80EDD3C1C4129CD00D13C69 /* OrderStore.m in Sources */,
 				F80EDD3D1C4129CD00D13C69 /* AppDelegate.m in Sources */,
