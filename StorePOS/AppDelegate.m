@@ -10,6 +10,8 @@
 #import "OrderService.h"
 #import "DBService.h"
 #import "NetworkService.h"
+#import "DiscoveryService.h"
+#import "PublishService.h"
 
 @interface AppDelegate ()
 @property (strong, nonatomic) OrderService *orderService;
@@ -23,7 +25,15 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     self.dbService = [[DBService alloc] initWithPersistentMode];
-    self.networkService = [[NetworkService alloc] init];
+    
+#ifdef MasterConfig
+    PublishService *publishService = [[PublishService alloc] init];
+    self.networkService = [[NetworkService alloc] initWithPublishService:publishService];
+#else
+    DiscoveryService *discoveryService = [[DiscoveryService alloc] init];
+    self.networkService = [[NetworkService alloc] initWithDiscoveryService:discoveryService];
+#endif
+    
     self.orderService = [[OrderService alloc] initWithDBService:_dbService networkService:_networkService];
     
     return YES;

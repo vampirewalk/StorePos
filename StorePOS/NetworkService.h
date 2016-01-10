@@ -8,13 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-typedef enum : NSUInteger {
-    Master,
-    Slave,
-} Configuration;
+@class DiscoveryService, PublishService;
 
 @interface NetworkService : NSObject
-- (void)startService;
-- (void)autoConnectToBonjourServiceNamed:(NSString*)serviceName;
-
+- (instancetype)initWithDiscoveryService:(DiscoveryService *) discoveryService;
+- (instancetype)initWithPublishService:(PublishService *) publishService;
 @end

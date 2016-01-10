@@ -39,6 +39,10 @@
 		F80EDD541C41590500D13C69 /* OrderNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = F80EDD531C41590500D13C69 /* OrderNotification.m */; };
 		F80EDD551C41590500D13C69 /* OrderNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = F80EDD531C41590500D13C69 /* OrderNotification.m */; };
 		F80EDD5A1C415AC100D13C69 /* OrderNotificationSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = F80EDD591C415AC100D13C69 /* OrderNotificationSpec.m */; };
+		F81E01ED1C41F42400E23B2B /* DiscoveryService.m in Sources */ = {isa = PBXBuildFile; fileRef = F81E01EC1C41F42400E23B2B /* DiscoveryService.m */; };
+		F81E01EE1C41F42400E23B2B /* DiscoveryService.m in Sources */ = {isa = PBXBuildFile; fileRef = F81E01EC1C41F42400E23B2B /* DiscoveryService.m */; };
+		F81E01F21C42249C00E23B2B /* PublishService.m in Sources */ = {isa = PBXBuildFile; fileRef = F81E01F11C42249C00E23B2B /* PublishService.m */; };
+		F81E01F31C42249C00E23B2B /* PublishService.m in Sources */ = {isa = PBXBuildFile; fileRef = F81E01F11C42249C00E23B2B /* PublishService.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +102,11 @@
 		F80EDD521C41590500D13C69 /* OrderNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderNotification.h; sourceTree = "<group>"; };
 		F80EDD531C41590500D13C69 /* OrderNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderNotification.m; sourceTree = "<group>"; };
 		F80EDD591C415AC100D13C69 /* OrderNotificationSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderNotificationSpec.m; sourceTree = "<group>"; };
+		F81E01EB1C41F42400E23B2B /* DiscoveryService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscoveryService.h; sourceTree = "<group>"; };
+		F81E01EC1C41F42400E23B2B /* DiscoveryService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscoveryService.m; sourceTree = "<group>"; };
+		F81E01EF1C42206800E23B2B /* Constant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constant.h; sourceTree = "<group>"; };
+		F81E01F01C42249C00E23B2B /* PublishService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublishService.h; sourceTree = "<group>"; };
+		F81E01F11C42249C00E23B2B /* PublishService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublishService.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +182,7 @@
 				316575B41C3F54FF0097EE32 /* LaunchScreen.storyboard */,
 				316575B71C3F54FF0097EE32 /* Info.plist */,
 				316575A61C3F54FF0097EE32 /* Supporting Files */,
+				F81E01EF1C42206800E23B2B /* Constant.h */,
 			);
 			path = StorePOS;
 			sourceTree = "<group>";
@@ -228,6 +238,10 @@
 				316575E51C3FB2DC0097EE32 /* DBService.m */,
 				F80EDD181C40EAE500D13C69 /* NetworkService.h */,
 				F80EDD191C40EAE500D13C69 /* NetworkService.m */,
+				F81E01EB1C41F42400E23B2B /* DiscoveryService.h */,
+				F81E01EC1C41F42400E23B2B /* DiscoveryService.m */,
+				F81E01F01C42249C00E23B2B /* PublishService.h */,
+				F81E01F11C42249C00E23B2B /* PublishService.m */,
 			);
 			name = Service;
 			sourceTree = "<group>";
@@ -560,6 +574,7 @@
 			files = (
 				316575AE1C3F54FF0097EE32 /* ViewController.m in Sources */,
 				316575E61C3FB2DC0097EE32 /* DBService.m in Sources */,
+				F81E01ED1C41F42400E23B2B /* DiscoveryService.m in Sources */,
 				F80EDD541C41590500D13C69 /* OrderNotification.m in Sources */,
 				316575E11C3F5E5F0097EE32 /* OrderService.m in Sources */,
 				316575E91C3FB5280097EE32 /* OrderStore.m in Sources */,
@@ -567,6 +582,7 @@
 				316575DC1C3F5CAA0097EE32 /* Order.m in Sources */,
 				F80EDD1A1C40EAE500D13C69 /* NetworkService.m in Sources */,
 				316575A81C3F54FF0097EE32 /* main.m in Sources */,
+				F81E01F21C42249C00E23B2B /* PublishService.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -595,6 +611,7 @@
 			files = (
 				F80EDD391C4129CD00D13C69 /* ViewController.m in Sources */,
 				F80EDD3A1C4129CD00D13C69 /* DBService.m in Sources */,
+				F81E01EE1C41F42400E23B2B /* DiscoveryService.m in Sources */,
 				F80EDD551C41590500D13C69 /* OrderNotification.m in Sources */,
 				F80EDD3B1C4129CD00D13C69 /* OrderService.m in Sources */,
 				F80EDD3C1C4129CD00D13C69 /* OrderStore.m in Sources */,
@@ -602,6 +619,7 @@
 				F80EDD3E1C4129CD00D13C69 /* Order.m in Sources */,
 				F80EDD3F1C4129CD00D13C69 /* NetworkService.m in Sources */,
 				F80EDD401C4129CD00D13C69 /* main.m in Sources */,
+				F81E01F31C42249C00E23B2B /* PublishService.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -25,11 +25,6 @@
         _orders = [NSMutableArray array];
         _dbService = dbService;
         _networkService = networkService;
-#ifdef MasterConfig
-        [_networkService startService];
-#else
-        [_networkService autoConnectToBonjourServiceNamed:@"POSMaster"];
-#endif
         
     }
     return self;
