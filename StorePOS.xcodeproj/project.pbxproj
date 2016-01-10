@@ -22,14 +22,12 @@
 		316575E91C3FB5280097EE32 /* OrderStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 316575E81C3FB5280097EE32 /* OrderStore.m */; };
 		316575EB1C3FB7B00097EE32 /* DBServiceSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 316575EA1C3FB7B00097EE32 /* DBServiceSpec.m */; };
 		9FA181801AA2DCBCF2F29BCB /* Pods_StorePOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C6EF8975B3E83835904C185 /* Pods_StorePOSTests.framework */; };
-		F80EDD1A1C40EAE500D13C69 /* NetworkService.m in Sources */ = {isa = PBXBuildFile; fileRef = F80EDD191C40EAE500D13C69 /* NetworkService.m */; };
 		F80EDD391C4129CD00D13C69 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 316575AD1C3F54FF0097EE32 /* ViewController.m */; };
 		F80EDD3A1C4129CD00D13C69 /* DBService.m in Sources */ = {isa = PBXBuildFile; fileRef = 316575E51C3FB2DC0097EE32 /* DBService.m */; };
 		F80EDD3B1C4129CD00D13C69 /* OrderService.m in Sources */ = {isa = PBXBuildFile; fileRef = 316575E01C3F5E5F0097EE32 /* OrderService.m */; };
 		F80EDD3C1C4129CD00D13C69 /* OrderStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 316575E81C3FB5280097EE32 /* OrderStore.m */; };
 		F80EDD3D1C4129CD00D13C69 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 316575AA1C3F54FF0097EE32 /* AppDelegate.m */; };
 		F80EDD3E1C4129CD00D13C69 /* Order.m in Sources */ = {isa = PBXBuildFile; fileRef = 316575DB1C3F5CAA0097EE32 /* Order.m */; };
-		F80EDD3F1C4129CD00D13C69 /* NetworkService.m in Sources */ = {isa = PBXBuildFile; fileRef = F80EDD191C40EAE500D13C69 /* NetworkService.m */; };
 		F80EDD401C4129CD00D13C69 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 316575A71C3F54FF0097EE32 /* main.m */; };
 		F80EDD421C4129CD00D13C69 /* Pods_StorePOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 797A355EB0C0DFE6D3F9D526 /* Pods_StorePOS.framework */; };
 		F80EDD441C4129CD00D13C69 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 316575B41C3F54FF0097EE32 /* LaunchScreen.storyboard */; };
@@ -43,6 +41,10 @@
 		F81E01EE1C41F42400E23B2B /* DiscoveryService.m in Sources */ = {isa = PBXBuildFile; fileRef = F81E01EC1C41F42400E23B2B /* DiscoveryService.m */; };
 		F81E01F21C42249C00E23B2B /* PublishService.m in Sources */ = {isa = PBXBuildFile; fileRef = F81E01F11C42249C00E23B2B /* PublishService.m */; };
 		F81E01F31C42249C00E23B2B /* PublishService.m in Sources */ = {isa = PBXBuildFile; fileRef = F81E01F11C42249C00E23B2B /* PublishService.m */; };
+		F89EAF391C425E5A0000AF57 /* MasterInstance.m in Sources */ = {isa = PBXBuildFile; fileRef = F89EAF381C425E5A0000AF57 /* MasterInstance.m */; };
+		F89EAF3A1C425E5A0000AF57 /* MasterInstance.m in Sources */ = {isa = PBXBuildFile; fileRef = F89EAF381C425E5A0000AF57 /* MasterInstance.m */; };
+		F89EAF3D1C425E660000AF57 /* SlaveInstance.m in Sources */ = {isa = PBXBuildFile; fileRef = F89EAF3C1C425E660000AF57 /* SlaveInstance.m */; };
+		F89EAF3E1C425E660000AF57 /* SlaveInstance.m in Sources */ = {isa = PBXBuildFile; fileRef = F89EAF3C1C425E660000AF57 /* SlaveInstance.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,8 +96,6 @@
 		AB94D9EB493BEF2E42C40249 /* Pods-StorePOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StorePOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StorePOS/Pods-StorePOS.debug.xcconfig"; sourceTree = "<group>"; };
 		C4873DFE1A7D60C26C96C6FD /* Pods-StorePOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StorePOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-StorePOS/Pods-StorePOS.release.xcconfig"; sourceTree = "<group>"; };
 		EFD801121A614DDBC381372F /* Pods-StorePOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StorePOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-StorePOSTests/Pods-StorePOSTests.release.xcconfig"; sourceTree = "<group>"; };
-		F80EDD181C40EAE500D13C69 /* NetworkService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkService.h; sourceTree = "<group>"; };
-		F80EDD191C40EAE500D13C69 /* NetworkService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkService.m; sourceTree = "<group>"; };
 		F80EDD4C1C4129CD00D13C69 /* StorePOSMaster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StorePOSMaster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F80EDD4D1C4129CE00D13C69 /* StorePOSMasterInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = StorePOSMasterInfo.plist; path = /Users/vampirewalk/develop/iOS/StorePOS/StorePOSMasterInfo.plist; sourceTree = "<absolute>"; };
 		F80EDD501C414AA500D13C69 /* OrderSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderSpec.m; sourceTree = "<group>"; };
@@ -107,6 +107,11 @@
 		F81E01EF1C42206800E23B2B /* Constant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constant.h; sourceTree = "<group>"; };
 		F81E01F01C42249C00E23B2B /* PublishService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublishService.h; sourceTree = "<group>"; };
 		F81E01F11C42249C00E23B2B /* PublishService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublishService.m; sourceTree = "<group>"; };
+		F89EAF371C425E5A0000AF57 /* MasterInstance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasterInstance.h; sourceTree = "<group>"; };
+		F89EAF381C425E5A0000AF57 /* MasterInstance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasterInstance.m; sourceTree = "<group>"; };
+		F89EAF3B1C425E660000AF57 /* SlaveInstance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlaveInstance.h; sourceTree = "<group>"; };
+		F89EAF3C1C425E660000AF57 /* SlaveInstance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlaveInstance.m; sourceTree = "<group>"; };
+		F89EAF421C4262460000AF57 /* Instancing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Instancing.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -232,16 +237,9 @@
 		316575DE1C3F5E520097EE32 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				316575DF1C3F5E5F0097EE32 /* OrderService.h */,
-				316575E01C3F5E5F0097EE32 /* OrderService.m */,
-				316575E41C3FB2DC0097EE32 /* DBService.h */,
-				316575E51C3FB2DC0097EE32 /* DBService.m */,
-				F80EDD181C40EAE500D13C69 /* NetworkService.h */,
-				F80EDD191C40EAE500D13C69 /* NetworkService.m */,
-				F81E01EB1C41F42400E23B2B /* DiscoveryService.h */,
-				F81E01EC1C41F42400E23B2B /* DiscoveryService.m */,
-				F81E01F01C42249C00E23B2B /* PublishService.h */,
-				F81E01F11C42249C00E23B2B /* PublishService.m */,
+				F89EAF411C4261430000AF57 /* Order */,
+				F89EAF401C42612C0000AF57 /* Network */,
+				F89EAF3F1C4261260000AF57 /* Persistent */,
 			);
 			name = Service;
 			sourceTree = "<group>";
@@ -264,6 +262,40 @@
 				7C6EF8975B3E83835904C185 /* Pods_StorePOSTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F89EAF3F1C4261260000AF57 /* Persistent */ = {
+			isa = PBXGroup;
+			children = (
+				316575E41C3FB2DC0097EE32 /* DBService.h */,
+				316575E51C3FB2DC0097EE32 /* DBService.m */,
+			);
+			name = Persistent;
+			sourceTree = "<group>";
+		};
+		F89EAF401C42612C0000AF57 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				F81E01EB1C41F42400E23B2B /* DiscoveryService.h */,
+				F81E01EC1C41F42400E23B2B /* DiscoveryService.m */,
+				F81E01F01C42249C00E23B2B /* PublishService.h */,
+				F81E01F11C42249C00E23B2B /* PublishService.m */,
+				F89EAF371C425E5A0000AF57 /* MasterInstance.h */,
+				F89EAF381C425E5A0000AF57 /* MasterInstance.m */,
+				F89EAF3B1C425E660000AF57 /* SlaveInstance.h */,
+				F89EAF3C1C425E660000AF57 /* SlaveInstance.m */,
+				F89EAF421C4262460000AF57 /* Instancing.h */,
+			);
+			name = Network;
+			sourceTree = "<group>";
+		};
+		F89EAF411C4261430000AF57 /* Order */ = {
+			isa = PBXGroup;
+			children = (
+				316575DF1C3F5E5F0097EE32 /* OrderService.h */,
+				316575E01C3F5E5F0097EE32 /* OrderService.m */,
+			);
+			name = Order;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -576,12 +608,13 @@
 				316575E61C3FB2DC0097EE32 /* DBService.m in Sources */,
 				F81E01ED1C41F42400E23B2B /* DiscoveryService.m in Sources */,
 				F80EDD541C41590500D13C69 /* OrderNotification.m in Sources */,
+				F89EAF391C425E5A0000AF57 /* MasterInstance.m in Sources */,
 				316575E11C3F5E5F0097EE32 /* OrderService.m in Sources */,
 				316575E91C3FB5280097EE32 /* OrderStore.m in Sources */,
 				316575AB1C3F54FF0097EE32 /* AppDelegate.m in Sources */,
 				316575DC1C3F5CAA0097EE32 /* Order.m in Sources */,
-				F80EDD1A1C40EAE500D13C69 /* NetworkService.m in Sources */,
 				316575A81C3F54FF0097EE32 /* main.m in Sources */,
+				F89EAF3D1C425E660000AF57 /* SlaveInstance.m in Sources */,
 				F81E01F21C42249C00E23B2B /* PublishService.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -613,12 +646,13 @@
 				F80EDD3A1C4129CD00D13C69 /* DBService.m in Sources */,
 				F81E01EE1C41F42400E23B2B /* DiscoveryService.m in Sources */,
 				F80EDD551C41590500D13C69 /* OrderNotification.m in Sources */,
+				F89EAF3A1C425E5A0000AF57 /* MasterInstance.m in Sources */,
 				F80EDD3B1C4129CD00D13C69 /* OrderService.m in Sources */,
 				F80EDD3C1C4129CD00D13C69 /* OrderStore.m in Sources */,
 				F80EDD3D1C4129CD00D13C69 /* AppDelegate.m in Sources */,
 				F80EDD3E1C4129CD00D13C69 /* Order.m in Sources */,
-				F80EDD3F1C4129CD00D13C69 /* NetworkService.m in Sources */,
 				F80EDD401C4129CD00D13C69 /* main.m in Sources */,
+				F89EAF3E1C425E660000AF57 /* SlaveInstance.m in Sources */,
 				F81E01F31C42249C00E23B2B /* PublishService.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

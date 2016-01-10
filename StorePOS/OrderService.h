@@ -9,15 +9,17 @@
 #import <Foundation/Foundation.h>
 #import "Order.h"
 #import <PromiseKit/PromiseKit.h>
+#import "Instancing.h"
 
 @class DBService, NetworkService;
 
 @interface OrderService : NSObject
+
+- (instancetype)initWithDBService:(DBService *) dbService instance:(id<Instancing>) instance;
 
 - (AnyPromise *)addOrder:(Order *) order;
 - (void)removeOrderAtIndex:(NSUInteger) index;
 - (NSUInteger)countOfOrders;
 - (Order *)objectInOrdersAtIndex:(NSUInteger)idx;
 
-- (instancetype)initWithDBService:(DBService *) dbService networkService:(NetworkService *) networkService;
 @end

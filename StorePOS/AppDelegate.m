@@ -9,14 +9,14 @@
 #import "AppDelegate.h"
 #import "OrderService.h"
 #import "DBService.h"
-#import "NetworkService.h"
 #import "DiscoveryService.h"
 #import "PublishService.h"
+#import "MasterInstance.h"
+#import "SlaveInstance.h"
 
 @interface AppDelegate ()
 @property (strong, nonatomic) OrderService *orderService;
 @property (strong, nonatomic) DBService *dbService;
-@property (strong, nonatomic) NetworkService *networkService;
 @end
 
 @implementation AppDelegate
@@ -28,13 +28,13 @@
     
 #ifdef MasterConfig
     PublishService *publishService = [[PublishService alloc] init];
-    self.networkService = [[NetworkService alloc] initWithPublishService:publishService];
+    MasterInstance *instance = [[MasterInstance alloc] initWithPublishService:publishService];
 #else
     DiscoveryService *discoveryService = [[DiscoveryService alloc] init];
-    self.networkService = [[NetworkService alloc] initWithDiscoveryService:discoveryService];
+    SlaveInstance *instance = [[SlaveInstance alloc] initWithDiscoveryService:discoveryService];
 #endif
     
-    self.orderService = [[OrderService alloc] initWithDBService:_dbService networkService:_networkService];
+    self.orderService = [[OrderService alloc] initWithDBService:_dbService instance:instance];
     
     return YES;
 }

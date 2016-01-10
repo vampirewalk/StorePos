@@ -8,23 +8,23 @@
 
 #import "OrderService.h"
 #import "DBService.h"
-#import "NetworkService.h"
 
-@interface OrderService ()
+@interface OrderService ()<InstanceDelegate>
 @property (strong, nonatomic) NSMutableArray<Order *> *orders;
 @property (strong, nonatomic) DBService *dbService;
-@property (strong, nonatomic) NetworkService *networkService;
+@property (strong, nonatomic) id<Instancing> instance;
 @end
 
 @implementation OrderService
 
-- (instancetype)initWithDBService:(DBService *) dbService networkService:(NetworkService *) networkService
+- (instancetype)initWithDBService:(DBService *) dbService instance:(id<Instancing>) instance
 {
     self = [super init];
     if (self) {
         _orders = [NSMutableArray array];
         _dbService = dbService;
-        _networkService = networkService;
+        _instance = instance;
+        _instance.delegate = self;
         
     }
     return self;
@@ -50,6 +50,15 @@
 {
     [self replaceOrderAtIndex:index withNewOrder:newOrder];
 }
+
+#pragma mark - InstanceDelegate
+
+- (void)didReceiveMessage:(NSString *) message
+{
+    
+}
+
+#pragma mark -
 
 - (NSUInteger)countOfOrders
 {
