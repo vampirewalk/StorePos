@@ -71,7 +71,6 @@
 
 - (void)webSocketDidOpen:(PSWebSocket *)webSocket {
     NSLog(@"The websocket handshake completed and is now open!");
-//    [webSocket send:@"Hello world!"];
 }
 - (void)webSocket:(PSWebSocket *)webSocket didReceiveMessage:(id)message {
     NSLog(@"The websocket received a message: %@", message);

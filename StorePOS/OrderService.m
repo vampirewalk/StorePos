@@ -8,6 +8,7 @@
 
 #import "OrderService.h"
 #import "DBService.h"
+#import "OrderNotification.h"
 
 @interface OrderService ()<InstanceDelegate>
 @property (strong, nonatomic) NSMutableArray<Order *> *orders;
@@ -36,26 +37,99 @@
         return [self insertObject:order inOrdersAtIndex:_orders.count];
     }).thenInBackground(^{
         return [_dbService addOrder:order];
+    }).thenInBackground(^{
+        OrderNotification *notification = [[OrderNotification alloc] initWithOperation:Create order:order];
+        [_instance sendMessage:[notification toJSONString]];
     });
 }
 
-- (void)removeOrderAtIndex:(NSUInteger) index
+- (AnyPromise *)removeOrderByUUID:(NSString *) uuid
 {
-    if (_orders.count > 0) {
-        [self removeObjectFromOrdersAtIndex:index];
-    }
+    return dispatch_promise(^{
+        if (_orders.count > 0) {
+            NSInteger index = [self indexOfOrderByUUID:uuid];
+            if (index != NSNotFound) {
+                Order *order = _orders[index];
+                [self removeObjectFromOrdersAtIndex:index];
+                return order;
+            }
+            else {
+                @throw [NSError cancelledError];
+            }
+        }
+        else {
+            @throw [NSError cancelledError];
+        }
+    }).thenInBackground(^(Order *order){
+        [_dbService removeOrderByUUID:uuid];
+        return order;
+    }).thenInBackground(^(Order *order){
+        OrderNotification *notification = [[OrderNotification alloc] initWithOperation:Remove order:order];
+        [_instance sendMessage:[notification toJSONString]];
+    });
 }
 
-- (void)replaceOrderAtIndex:(NSUInteger) index withNewOrder:(Order *) newOrder
+- (AnyPromise *)updateOrderByUUID:(NSString *) uuid withNewOrder:(Order *) newOrder
 {
-    [self replaceOrderAtIndex:index withNewOrder:newOrder];
+    return dispatch_promise(^{
+        NSInteger index = [self indexOfOrderByUUID:uuid];
+        if (index != NSNotFound) {
+            [self replaceObjectInOrdersAtIndex:index withObject:newOrder];
+        }
+        else {
+            @throw [NSError cancelledError];
+        }
+    }).thenInBackground(^{
+        return [_dbService updateOrder:newOrder];
+    }).thenInBackground(^{
+        OrderNotification *notification = [[OrderNotification alloc] initWithOperation:Update order:newOrder];
+        [_instance sendMessage:[notification toJSONString]];
+    });
+}
+
+- (NSInteger)indexOfOrderByUUID:(NSString *) uuid
+{
+    NSInteger index = NSNotFound;
+    for (NSInteger index=0; index < _orders.count; index++) {
+        if ([_orders[index].uuid isEqualToString:uuid]) {
+            return index;
+        }
+    }
+    
+    return index;
+}
+
+- (Order *)orderByUUID:(NSString *) uuid
+{
+    NSInteger index = [self indexOfOrderByUUID:uuid];
+    if (index != NSNotFound) {
+        return _orders[index];
+    }
+    else {
+        return nil;
+    }
 }
 
 #pragma mark - InstanceDelegate
 
 - (void)didReceiveMessage:(NSString *) message
 {
-    
+    OrderNotification *notification = [OrderNotification orderNotificationWithJSON:message];
+    Order *order = notification.order;
+    switch (notification.operation) {
+        case Create:
+            [self addOrder:order];
+            break;
+        case Update:
+            [self updateOrderByUUID:order.uuid withNewOrder:order];
+            break;
+        case Remove:
+            [self removeOrderByUUID:order.uuid];
+            break;
+            
+        default:
+            break;
+    }
 }
 
 #pragma mark -

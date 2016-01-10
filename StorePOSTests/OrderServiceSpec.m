@@ -12,8 +12,7 @@
 #import "OrderService.h"
 #import <OCMock/OCMock.h>
 #import "DBService.h"
-#import "MasterInstance.h"
-#import "SlaveInstance.h"
+#import "Instancing.h"
 
 SpecBegin(OrderService)
 
@@ -30,26 +29,56 @@ describe(@"OrderService", ^{
     
     beforeEach(^{
         dbServiceMock = OCMClassMock([DBService class]);
-        instanceMock = OCMClassMock([MasterInstance class]);
+        instanceMock = OCMProtocolMock(@protocol(Instancing));
         orderService = [[OrderService alloc] initWithDBService:dbServiceMock instance:instanceMock];
         newOrder = [[Order alloc] initWithUUID:[NSUUID UUID].UUIDString customerName:@"Kevin" shippingMethod:@"DHL" tableName:nil tableSize:-1 created:[NSDate date]];
     });
     
     it(@"add a new order", ^{
-        OCMExpect([(DBService *)dbServiceMock addOrder:[OCMArg any]]);
+        OCMExpect([(DBService *)dbServiceMock addOrder:[OCMArg isNotNil]]);
+        OCMExpect([instanceMock sendMessage:[OCMArg isNotNil]]);
         waitUntil(^(DoneCallback done) {
             [orderService addOrder:newOrder].finally(^{
                 expect([orderService countOfOrders]).to.equal(1);
-                OCMVerify([(DBService *)dbServiceMock addOrder:[OCMArg any]]);
+                OCMVerify([(DBService *)dbServiceMock addOrder:[OCMArg isNotNil]]);
+                OCMVerify([instanceMock sendMessage:[OCMArg isNotNil]]);
                 done();
             });
         });
     });
     
-    it(@"remove an order at index", ^{
-        [orderService addOrder:newOrder];
-        [orderService removeOrderAtIndex:0];
-        expect([orderService countOfOrders]).to.equal(0);
+    it(@"remove an order by uuid", ^{
+        OCMExpect([(DBService *)dbServiceMock removeOrderByUUID:[OCMArg isNotNil]]);
+        OCMExpect([instanceMock sendMessage:[OCMArg isNotNil]]);
+        waitUntil(^(DoneCallback done) {
+            [orderService addOrder:newOrder].finally(^{
+                [orderService removeOrderByUUID:newOrder.uuid]
+                .finally(^{
+                    expect([orderService countOfOrders]).to.equal(0);
+                    OCMVerify([(DBService *)dbServiceMock removeOrderByUUID:[OCMArg isNotNil]]);
+                    OCMVerify([instanceMock sendMessage:[OCMArg isNotNil]]);
+                    done();
+                });
+            });
+        });
+    });
+    
+    it(@"update an order by uuid", ^{
+        OCMExpect([(DBService *)dbServiceMock updateOrder:[OCMArg isNotNil]]);
+        OCMExpect([instanceMock sendMessage:[OCMArg isNotNil]]);
+        waitUntil(^(DoneCallback done) {
+            [orderService addOrder:newOrder].finally(^{
+                newOrder.shippingMethod = @"Fedex";
+                [orderService updateOrderByUUID:newOrder.uuid withNewOrder:newOrder]
+                .finally(^{
+                    expect([orderService countOfOrders]).to.equal(1);
+                    expect([orderService orderByUUID:newOrder.uuid].shippingMethod).to.equal(@"Fedex");
+                    OCMVerify([(DBService *)dbServiceMock updateOrder:[OCMArg isNotNil]]);
+                    OCMVerify([instanceMock sendMessage:[OCMArg isNotNil]]);
+                    done();
+                });
+            });
+        });
     });
     
     afterEach(^{
