@@ -24,6 +24,8 @@
     if (self) {
         _orders = [NSMutableArray array];
         _dbService = dbService;
+        [_orders addObjectsFromArray:[_dbService queryAllOrdersBySortCriteria:Created]];
+        
         _instance = instance;
         _instance.delegate = self;
         

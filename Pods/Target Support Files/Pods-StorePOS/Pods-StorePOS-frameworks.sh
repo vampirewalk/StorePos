@@ -84,18 +84,22 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "Pods-StorePOS/KVOController.framework"
   install_framework "Pods-StorePOS/OMGHTTPURLRQ.framework"
   install_framework "Pods-StorePOS/PocketSocket.framework"
   install_framework "Pods-StorePOS/PromiseKit.framework"
   install_framework "Pods-StorePOS/PureLayout.framework"
   install_framework "Pods-StorePOS/Realm.framework"
   install_framework "Pods-StorePOS/YYModel.framework"
+  install_framework "Pods-StorePOS/libextobjc.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "Pods-StorePOS/KVOController.framework"
   install_framework "Pods-StorePOS/OMGHTTPURLRQ.framework"
   install_framework "Pods-StorePOS/PocketSocket.framework"
   install_framework "Pods-StorePOS/PromiseKit.framework"
   install_framework "Pods-StorePOS/PureLayout.framework"
   install_framework "Pods-StorePOS/Realm.framework"
   install_framework "Pods-StorePOS/YYModel.framework"
+  install_framework "Pods-StorePOS/libextobjc.framework"
 fi

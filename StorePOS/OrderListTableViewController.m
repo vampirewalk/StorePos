@@ -7,9 +7,16 @@
 //
 
 #import "OrderListTableViewController.h"
+#import <KVOController/FBKVOController.h>
+#import "AppDelegate.h"
+#import <libextobjc/EXTKeyPathCoding.h>
+#import "EditOrderViewController.h"
+#import "OrderListTableViewControllerCell.h"
+
+static NSString *const OrderListTableViewControllerCellIdentifier = @"OrderListTableViewControllerCellIdentifier";
 
 @interface OrderListTableViewController ()
-
+@property (strong, nonatomic) OrderService *service;
 @end
 
 @implementation OrderListTableViewController
@@ -22,6 +29,30 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    self.tableView.estimatedRowHeight = 120;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addOrder)];
+    
+    FBKVOController *KVOController = [[FBKVOController alloc] initWithObserver:self retainObserved:NO];
+    self.KVOController = KVOController;
+    
+    AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+    self.service = appDelegate.orderService;
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self observeServer];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [self unobserveServer];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -29,27 +60,54 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)addOrder
+{
+    EditOrderViewController *editOrderViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"EditOrderViewController"];
+    [self.navigationController pushViewController:editOrderViewController animated:YES];
+}
+
+#pragma mark - KVO
+
+- (void)observeServer
+{
+    [self.KVOController observe:_service keyPath:@keypath(_service, orders) options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew block:^(OrderListTableViewController *observer, OrderService *service, NSDictionary *change) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [observer.tableView reloadData];
+        });
+    }];
+}
+
+- (void)unobserveServer
+{
+    [self.KVOController unobserve:_service keyPath:@keypath(_service, orders)];
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 0;
+    return _service.orders.count;
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
+    OrderListTableViewControllerCell *cell = [tableView dequeueReusableCellWithIdentifier:OrderListTableViewControllerCellIdentifier forIndexPath:indexPath];
+    Order *order = [_service objectInOrdersAtIndex:indexPath.row];
+    cell.customerName.text = order.customerName;
+    cell.shippingMethod.text = order.shippingMethod;
+    cell.tableName.text = order.tableName;
+    cell.tableSize.text = [@(order.tableSize) stringValue];
     
     return cell;
 }
-*/
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 120.0f;
+}
 
 /*
 // Override to support conditional editing of the table view.

@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import "OrderService.h"
 #import "DBService.h"
 #import "DiscoveryService.h"
 #import "PublishService.h"

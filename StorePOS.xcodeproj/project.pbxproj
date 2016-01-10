@@ -47,6 +47,8 @@
 		F89EAF461C4290C30000AF57 /* OrderListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F89EAF441C4290C30000AF57 /* OrderListTableViewController.m */; };
 		F89EAF491C4292470000AF57 /* EditOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F89EAF481C4292470000AF57 /* EditOrderViewController.m */; };
 		F89EAF4A1C4292470000AF57 /* EditOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F89EAF481C4292470000AF57 /* EditOrderViewController.m */; };
+		F89EAF511C42AC900000AF57 /* OrderListTableViewControllerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F89EAF501C42AC900000AF57 /* OrderListTableViewControllerCell.m */; };
+		F89EAF521C42AC900000AF57 /* OrderListTableViewControllerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F89EAF501C42AC900000AF57 /* OrderListTableViewControllerCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,6 +118,8 @@
 		F89EAF441C4290C30000AF57 /* OrderListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderListTableViewController.m; sourceTree = "<group>"; };
 		F89EAF471C4292470000AF57 /* EditOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditOrderViewController.h; sourceTree = "<group>"; };
 		F89EAF481C4292470000AF57 /* EditOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditOrderViewController.m; sourceTree = "<group>"; };
+		F89EAF4F1C42AC900000AF57 /* OrderListTableViewControllerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderListTableViewControllerCell.h; sourceTree = "<group>"; };
+		F89EAF501C42AC900000AF57 /* OrderListTableViewControllerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderListTableViewControllerCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,6 +198,8 @@
 				F89EAF441C4290C30000AF57 /* OrderListTableViewController.m */,
 				F89EAF471C4292470000AF57 /* EditOrderViewController.h */,
 				F89EAF481C4292470000AF57 /* EditOrderViewController.m */,
+				F89EAF4F1C42AC900000AF57 /* OrderListTableViewControllerCell.h */,
+				F89EAF501C42AC900000AF57 /* OrderListTableViewControllerCell.m */,
 			);
 			path = StorePOS;
 			sourceTree = "<group>";
@@ -614,6 +620,7 @@
 				F81E01ED1C41F42400E23B2B /* DiscoveryService.m in Sources */,
 				F80EDD541C41590500D13C69 /* OrderNotification.m in Sources */,
 				F89EAF391C425E5A0000AF57 /* MasterInstance.m in Sources */,
+				F89EAF511C42AC900000AF57 /* OrderListTableViewControllerCell.m in Sources */,
 				F89EAF491C4292470000AF57 /* EditOrderViewController.m in Sources */,
 				F89EAF451C4290C30000AF57 /* OrderListTableViewController.m in Sources */,
 				316575E11C3F5E5F0097EE32 /* OrderService.m in Sources */,
@@ -653,6 +660,7 @@
 				F81E01EE1C41F42400E23B2B /* DiscoveryService.m in Sources */,
 				F80EDD551C41590500D13C69 /* OrderNotification.m in Sources */,
 				F89EAF3A1C425E5A0000AF57 /* MasterInstance.m in Sources */,
+				F89EAF521C42AC900000AF57 /* OrderListTableViewControllerCell.m in Sources */,
 				F89EAF4A1C4292470000AF57 /* EditOrderViewController.m in Sources */,
 				F89EAF461C4290C30000AF57 /* OrderListTableViewController.m in Sources */,
 				F80EDD3B1C4129CD00D13C69 /* OrderService.m in Sources */,

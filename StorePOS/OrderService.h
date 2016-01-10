@@ -15,6 +15,8 @@
 
 @interface OrderService : NSObject
 
+@property (strong, nonatomic,readonly) NSMutableArray<Order *> *orders;
+
 - (instancetype)initWithDBService:(DBService *) dbService instance:(id<Instancing>) instance;
 
 - (AnyPromise *)addOrder:(Order *) order;

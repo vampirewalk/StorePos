@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface EditOrderViewController : UIViewController
-
+@property (strong, nonatomic) UITextField *customerName;
+@property (strong, nonatomic) UITextField *shippingMethod;
+@property (strong, nonatomic) UITextField *tableName;
+@property (strong, nonatomic) UITextField *tableSize;
 @end

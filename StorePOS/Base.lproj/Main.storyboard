@@ -14,7 +14,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="OrderListTableViewControllerCell" rowHeight="120" id="4o2-72-cMu">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="OrderListTableViewControllerCellIdentifier" rowHeight="120" id="4o2-72-cMu" customClass="OrderListTableViewControllerCell">
                                 <rect key="frame" x="0.0" y="92" width="600" height="120"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4o2-72-cMu" id="Bko-N1-ytG">
@@ -33,6 +33,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jfd-5D-smn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="620" y="-23"/>
+        </scene>
+        <!--Edit Order View Controller-->
+        <scene sceneID="XDj-f8-S7a">
+            <objects>
+                <viewController storyboardIdentifier="EditOrderViewController" id="eRQ-FI-LOe" customClass="EditOrderViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4BV-Tb-xwM"/>
+                        <viewControllerLayoutGuide type="bottom" id="nbc-g3-eVa"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="sCI-Mh-yE7">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tLr-vb-Ymc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1286" y="-28"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="zbK-5G-sYd">
