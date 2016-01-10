@@ -21,7 +21,7 @@
         [_netService stop];
         _netService = nil;
     }
-    _netService = [[NSNetService alloc] initWithDomain:@"local." type:POSBonjourServiceType name:serviceName port:80];
+    _netService = [[NSNetService alloc] initWithDomain:@"local." type:POSBonjourServiceType name:serviceName port:8080];
     if(_netService)
     {
         [_netService setDelegate:self];
@@ -49,8 +49,8 @@
 
 - (void)netServiceDidPublish:(NSNetService *)sender
 {
-    if (_delegate && [_delegate respondsToSelector:@selector(serviceDidPublish)]) {
-        [_delegate serviceDidPublish];
+    if (_delegate && [_delegate respondsToSelector:@selector(serviceDidPublishWithHostname:port:)]) {
+        [_delegate serviceDidPublishWithHostname:[sender hostName] port:[sender port]];
     }
 }
 

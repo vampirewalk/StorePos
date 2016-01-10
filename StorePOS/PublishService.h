@@ -10,7 +10,7 @@
 
 @protocol PublishServiceDelegate <NSObject>
 
-- (void)serviceDidPublish;
+- (void)serviceDidPublishWithHostname:(NSString *) hosname port:(NSInteger) port;
 - (void)serviceDidNotPublish;
 
 @end
