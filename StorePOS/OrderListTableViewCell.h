@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface OrderListTableViewControllerCell : UITableViewCell
+@interface OrderListTableViewCell : UITableViewCell
 @property (strong, nonatomic) UILabel *customerName;
 @property (strong, nonatomic) UILabel *shippingMethod;
 @property (strong, nonatomic) UILabel *tableName;

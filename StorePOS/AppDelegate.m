@@ -12,6 +12,7 @@
 #import "PublishService.h"
 #import "MasterInstance.h"
 #import "SlaveInstance.h"
+#import <ChameleonFramework/Chameleon.h>
 
 @interface AppDelegate ()
 @property (strong, nonatomic) OrderService *orderService;
@@ -34,6 +35,8 @@
 #endif
     
     self.orderService = [[OrderService alloc] initWithDBService:_dbService instance:instance];
+    
+    [Chameleon setGlobalThemeUsingPrimaryColor:[UIColor flatYellowColorDark] withContentStyle:UIContentStyleContrast];
     
     return YES;
 }

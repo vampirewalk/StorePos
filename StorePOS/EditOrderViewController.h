@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+@class Order;
+
 @interface EditOrderViewController : UIViewController
-@property (strong, nonatomic) UITextField *customerName;
-@property (strong, nonatomic) UITextField *shippingMethod;
-@property (strong, nonatomic) UITextField *tableName;
-@property (strong, nonatomic) UITextField *tableSize;
+@property (weak, nonatomic) IBOutlet UITextField *customerName;
+@property (weak, nonatomic) IBOutlet UITextField *shippingMethod;
+@property (weak, nonatomic) IBOutlet UITextField *tableName;
+@property (weak, nonatomic) IBOutlet UITextField *tableSize;
+@property (strong, nonatomic) Order *order;
 @end

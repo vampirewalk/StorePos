@@ -9,6 +9,8 @@ target :StorePOS, :exclusive => true do
 	pod 'PromiseKit'
 	pod 'KVOController'
 	pod 'libextobjc'
+    pod 'ChameleonFramework'
+    pod "SingleLineInput"
 end
 
 target :StorePOSTests, :exclusive => true do

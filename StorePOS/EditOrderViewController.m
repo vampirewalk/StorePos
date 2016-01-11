@@ -9,6 +9,8 @@
 #import "EditOrderViewController.h"
 #import <PureLayout/PureLayout.h>
 #import "AppDelegate.h"
+#import "OrderTextField.h"
+#import <ChameleonFramework/Chameleon.h>
 
 @interface EditOrderViewController ()
 @property (strong, nonatomic) OrderService *service;
@@ -19,39 +21,79 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.view.backgroundColor = [UIColor flatPurpleColor];
     
-    self.customerName = [UITextField newAutoLayoutView];
+    [self setupTextFields];
+    
+    AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+    self.service = appDelegate.orderService;
+    
+    self.navigationItem.title = @"Add Order";
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self fillValue];
+    if (_order != nil) {
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(updateOrder)];
+    }
+    else {
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(addOrder)];
+    }
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+- (void)setupTextFields
+{
+    _customerName.translatesAutoresizingMaskIntoConstraints = NO;
     _customerName.placeholder = @"customName";
-    _customerName.text = @"customName";
+    _customerName.text = @"Kevin";
+    [_customerName becomeFirstResponder];
     
-    self.shippingMethod = [UITextField newAutoLayoutView];
+    _shippingMethod.translatesAutoresizingMaskIntoConstraints = NO;
     _shippingMethod.placeholder = @"shippingMethod";
-    _shippingMethod.text = @"shippingMethod";
+    _shippingMethod.text = @"DHL";
     
-    self.tableName = [UITextField newAutoLayoutView];
+    _tableName.translatesAutoresizingMaskIntoConstraints = NO;
     _tableName.placeholder = @"tableName";
-    _tableName.text = @"tableName";
+    _tableName.text = @"";
     
-    self.tableSize = [UITextField newAutoLayoutView];
+    _tableSize.translatesAutoresizingMaskIntoConstraints = NO;
     _tableSize.placeholder = @"tableSize";
-    _tableSize.text = @"tableSize";
+    _tableSize.text = @"-1";
     
     [self.view addSubview:_customerName];
     [self.view addSubview:_shippingMethod];
     [self.view addSubview:_tableName];
     [self.view addSubview:_tableSize];
     
-    [@[_customerName, _shippingMethod, _tableName, _tableSize] autoDistributeViewsAlongAxis:ALAxisVertical alignedTo:ALAttributeLeft withFixedSize:40 insetSpacing:YES];
+    [@[_customerName, _shippingMethod, _tableName, _tableSize] autoDistributeViewsAlongAxis:ALAxisVertical alignedTo:ALAttributeLeft withFixedSize:88 insetSpacing:YES];
+    [_customerName autoPinEdgeToSuperviewMargin:ALEdgeLeft];
+    [_customerName autoPinEdgeToSuperviewMargin:ALEdgeRight];
     
-    AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
-    self.service = appDelegate.orderService;
+    [_shippingMethod autoPinEdgeToSuperviewMargin:ALEdgeLeft];
+    [_shippingMethod autoPinEdgeToSuperviewMargin:ALEdgeRight];
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(addOrder)];
+    [_tableName autoPinEdgeToSuperviewMargin:ALEdgeLeft];
+    [_tableName autoPinEdgeToSuperviewMargin:ALEdgeRight];
+    
+    [_tableSize autoPinEdgeToSuperviewMargin:ALEdgeLeft];
+    [_tableSize autoPinEdgeToSuperviewMargin:ALEdgeRight];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)fillValue
+{
+    if (_order != nil) {
+        _customerName.text = _order.customerName;
+        _shippingMethod.text = _order.shippingMethod;
+        _tableName.text = _order.tableName;
+        _tableSize.text = [@(_order.tableSize) stringValue];
+    }
 }
 
 /*
@@ -68,6 +110,16 @@
 {
     Order *newOrder = [[Order alloc] initWithUUID:[NSUUID UUID].UUIDString customerName:_customerName.text shippingMethod:_shippingMethod.text tableName:_tableName.text tableSize:[_tableSize.text integerValue] created:[NSDate date]];
     [_service addOrder:newOrder];
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)updateOrder
+{
+    _order.customerName = _customerName.text;
+    _order.shippingMethod = _shippingMethod.text;
+    _order.tableName = _tableName.text;
+    _order.tableSize = [_tableSize.text integerValue];
+    [_service updateOrderByUUID:_order.uuid withNewOrder:_order];
     [self.navigationController popViewControllerAnimated:YES];
 }
 

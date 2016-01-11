@@ -11,7 +11,8 @@
 #import "AppDelegate.h"
 #import <libextobjc/EXTKeyPathCoding.h>
 #import "EditOrderViewController.h"
-#import "OrderListTableViewControllerCell.h"
+#import "OrderListTableViewCell.h"
+#import <ChameleonFramework/Chameleon.h>
 
 static NSString *const OrderListTableViewControllerCellIdentifier = @"OrderListTableViewControllerCellIdentifier";
 
@@ -32,10 +33,10 @@ static NSString *const OrderListTableViewControllerCellIdentifier = @"OrderListT
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    self.tableView.estimatedRowHeight = 120;
-    self.tableView.rowHeight = UITableViewAutomaticDimension;
-
     
+    self.view.backgroundColor = [UIColor flatPurpleColor];
+    
+    self.navigationItem.leftBarButtonItem = self.editButtonItem;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addOrder)];
     
     FBKVOController *KVOController = [[FBKVOController alloc] initWithObserver:self retainObserved:NO];
@@ -47,12 +48,14 @@ static NSString *const OrderListTableViewControllerCellIdentifier = @"OrderListT
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    [self observeServer];
+    [super viewWillAppear:animated];
+    [self observeOrder];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
-    [self unobserveServer];
+    [self unobserveOrder];
+    [super viewWillDisappear:animated];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -66,21 +69,40 @@ static NSString *const OrderListTableViewControllerCellIdentifier = @"OrderListT
     [self.navigationController pushViewController:editOrderViewController animated:YES];
 }
 
+- (void)updateOrderWithIndexPath:(NSIndexPath *) indexPath
+{
+    EditOrderViewController *editOrderViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"EditOrderViewController"];
+    Order *order = [_service objectInOrdersAtIndex:indexPath.row];
+    editOrderViewController.order = order;
+    [self.navigationController pushViewController:editOrderViewController animated:YES];
+}
+
 #pragma mark - KVO
 
-- (void)observeServer
+- (void)observeOrder
 {
     [self.KVOController observe:_service keyPath:@keypath(_service, orders) options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew block:^(OrderListTableViewController *observer, OrderService *service, NSDictionary *change) {
-        dispatch_async(dispatch_get_main_queue(), ^{
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
             [observer.tableView reloadData];
-        });
+        }];
     }];
 }
 
-- (void)unobserveServer
+- (void)unobserveOrder
 {
     [self.KVOController unobserve:_service keyPath:@keypath(_service, orders)];
 }
+
+#pragma mark - Table view delegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (!self.editing) {
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+        [self updateOrderWithIndexPath:indexPath];
+    }
+}
+
 
 #pragma mark - Table view data source
 
@@ -94,19 +116,23 @@ static NSString *const OrderListTableViewControllerCellIdentifier = @"OrderListT
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    OrderListTableViewControllerCell *cell = [tableView dequeueReusableCellWithIdentifier:OrderListTableViewControllerCellIdentifier forIndexPath:indexPath];
+    OrderListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:OrderListTableViewControllerCellIdentifier forIndexPath:indexPath];
     Order *order = [_service objectInOrdersAtIndex:indexPath.row];
     cell.customerName.text = order.customerName;
     cell.shippingMethod.text = order.shippingMethod;
     cell.tableName.text = order.tableName;
     cell.tableSize.text = [@(order.tableSize) stringValue];
     
+    UIView *bgColorView = [[UIView alloc] init];
+    bgColorView.backgroundColor = [UIColor flatPinkColor];
+    [cell setSelectedBackgroundView:bgColorView];
+    
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 120.0f;
+    return 160.0f;
 }
 
 /*
@@ -127,6 +153,7 @@ static NSString *const OrderListTableViewControllerCellIdentifier = @"OrderListT
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
 }
+
 */
 
 /*
@@ -152,5 +179,38 @@ static NSString *const OrderListTableViewControllerCellIdentifier = @"OrderListT
     // Pass the selected object to the new view controller.
 }
 */
+
+#pragma mark - Edit
+
+- (void)setEditing:(BOOL)editing animated:(BOOL)animated
+{
+    [super setEditing:editing animated:animated];
+    self.tableView.allowsMultipleSelectionDuringEditing = editing;
+    if (editing) {
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Delete" style:UIBarButtonItemStylePlain target:self action:@selector(removeSelectedOrder)];
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(finishEditing)];
+    }
+    else {
+        self.navigationItem.leftBarButtonItem = self.editButtonItem;
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addOrder)];
+    }
+    
+    [self.tableView reloadRowsAtIndexPaths:[self.tableView indexPathsForVisibleRows] withRowAnimation:UITableViewRowAnimationAutomatic];
+}
+
+- (void)finishEditing
+{
+    [self setEditing:NO animated:YES];
+}
+
+- (void)removeSelectedOrder
+{
+    NSArray *selectedCells = [self.tableView indexPathsForSelectedRows];
+    for (NSInteger index=0; index < selectedCells.count; index++) {
+        NSIndexPath *indexPath = selectedCells[index];
+        Order *order = [_service objectInOrdersAtIndex:indexPath.row];
+        [_service removeOrderByUUID:order.uuid];
+    }
+}
 
 @end
