@@ -38,6 +38,11 @@
 
 - (AnyPromise *)addOrder:(Order *) order byReceivingMessage:(BOOL) byReceivingMessage
 {
+    /*
+     dispatch_promise and thenInBackground dispatche the promise onto the default GCD queue.
+     http://promisekit.org/dispatch-queues/
+     Because orders may be accessed by multiple thread triggered by UI or network, so we use semaphore here to ensure thread safety.
+     */
     return dispatch_promise(^{
         dispatch_semaphore_wait(_semaphore, DISPATCH_TIME_FOREVER);
         [self insertObject:order inOrdersAtIndex:_orders.count];

@@ -76,6 +76,11 @@
 
 #pragma mark PSWebSocketServerDelegate
 
+/*
+ We don't set delegateQueue in PSWebSocketServer, so these delegate will be called in the main queue.
+ So don't worry about race condition of slaveSockets.
+ */
+
 - (void)serverDidStart:(PSWebSocketServer *)server {
     NSLog(@"Server did start…");
 }
