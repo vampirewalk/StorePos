@@ -45,22 +45,31 @@ describe(@"OrderNotification", ^{
     });  
     
     it(@"init with JSON", ^{
-        NSString *JSON = @"{\"operation\":0,\"orders\":[{\"uuid\":\"9437C8F5-D742-46CB-9847-737C5809392C\",\"customerName\":\"Kevin\",\"created\":\"2016-01-12T21:35:16+0800\",\"shippingMethod\":\"DHL\",\"tableSize\":-1}]}";
+        NSString *JSON = @"{\"operation\":0,\"orders\":[{\"uuid\":\"9437C8F5-D742-46CB-9847-737C5809392C\",\"customerName\":\"Kevin\",\"created\":\"2016-01-12T21:35:16+0800\",\"shippingMethod\":\"DHL\",\"tableSize\":-1},{\"uuid\":\"E1CF0738-9400-4335-98AD-F882096C23C1\",\"customerName\":\"Kevin\",\"created\":\"2016-01-09T22:41:37+0800\",\"shippingMethod\":\"DHL\",\"tableSize\":-1}]}";
         
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
         formatter.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
         formatter.dateFormat = @"yyyy-MM-dd'T'HH:mm:ssZ";
         NSDate *dateInJSON = [formatter dateFromString:@"2016-01-12T21:35:16+0800"];
+        NSDate *dateInJSON2 = [formatter dateFromString:@"2016-01-09T22:41:37+0800"];
         
         OrderNotification *orderNotificationWithJSON = [OrderNotification orderNotificationWithJSON:JSON];
         expect(orderNotificationWithJSON.operation).to.equal(Create);
         NSArray *orders = orderNotificationWithJSON.orders;
+        
         Order *orderWithJSON = orders.firstObject;
         expect(orderWithJSON.uuid).to.equal(@"9437C8F5-D742-46CB-9847-737C5809392C");
         expect(orderWithJSON.customerName).to.equal(@"Kevin");
         expect(orderWithJSON.shippingMethod).to.equal(@"DHL");
         expect(orderWithJSON.tableSize).to.equal(-1);
         expect(orderWithJSON.created).to.equal(dateInJSON);
+        
+        Order *orderWithJSON2 = orders[1];
+        expect(orderWithJSON2.uuid).to.equal(@"E1CF0738-9400-4335-98AD-F882096C23C1");
+        expect(orderWithJSON2.customerName).to.equal(@"Kevin");
+        expect(orderWithJSON2.shippingMethod).to.equal(@"DHL");
+        expect(orderWithJSON2.tableSize).to.equal(-1);
+        expect(orderWithJSON2.created).to.equal(dateInJSON2);
     });
     
     afterEach(^{
