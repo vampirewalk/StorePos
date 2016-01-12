@@ -9,7 +9,7 @@ This application follows MVC design pattern. Modules with blue background are de
 View controllers only interact with OrderService, and OrderService will coordinate instance and DBService to execute corresponding tasks. DBService is responsible for CRUD in local database. Instance is responsible for publishing/discovering service and sending/receiving message from socket. We have two kinds of instance, one is master, the other is slave, they are slightly different from each other. Master instance will start publishing service after being initialized, and it broadcasts order operarion to all slaves. Slave instance will start discovering service after being initialized, and it only sends order operarion to master.
 
 # Network
-![img](./Documentation/network.png)
+![img](./Documentation/Network.png)
 
 Slave uses Bonjour to find master in LAN, then use hostname and port provided by Bonjour to connect to master by WebSocket. When slave is managing order data, 
 slave sends data to master, and master will broadcast to all slaves.
