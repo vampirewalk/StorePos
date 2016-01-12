@@ -22,13 +22,22 @@ Bellow is an example data transmitted between master and slaves.
 ```
 {  
    "operation":0,
-   "order":{  
-      "uuid":"4E97A130-C151-42A1-B6BE-247059539BC8",
-      "customerName":"Kevin",
-      "created":"2016-01-09T23:15:34+0800",
-      "shippingMethod":"DHL",
-      "tableSize":-1
-   }
+   "orders":[  
+      {  
+         "uuid":"9437C8F5-D742-46CB-9847-737C5809392C",
+         "customerName":"Kevin",
+         "created":"2016-01-12T21:35:16+0800",
+         "shippingMethod":"DHL",
+         "tableSize":-1
+      },
+      {  
+         "uuid":"E1CF0738-9400-4335-98AD-F882096C23C1",
+         "customerName":"Kevin",
+         "created":"2016-01-09T22:41:37+0800",
+         "shippingMethod":"DHL",
+         "tableSize":-1
+      }
+   ]
 }
 ```
 
