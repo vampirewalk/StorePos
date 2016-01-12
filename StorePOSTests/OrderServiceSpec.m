@@ -14,6 +14,12 @@
 #import "DBService.h"
 #import "Instancing.h"
 
+@interface OrderService ()
+- (NSInteger)indexOfOrderByUUID:(NSString *) uuid;
+- (Order *)orderByUUID:(NSString *) uuid;
+- (NSUInteger)countOfOrders;
+@end
+
 SpecBegin(OrderService)
 
 describe(@"OrderService", ^{
@@ -38,7 +44,7 @@ describe(@"OrderService", ^{
         OCMExpect([(DBService *)dbServiceMock addOrder:[OCMArg isNotNil]]);
         OCMExpect([instanceMock sendMessage:[OCMArg isNotNil]]);
         waitUntil(^(DoneCallback done) {
-            [orderService addOrder:newOrder].finally(^{
+            [orderService addOrder:newOrder byReceivingMessage:NO].finally(^{
                 expect([orderService countOfOrders]).to.equal(1);
                 OCMVerify([(DBService *)dbServiceMock addOrder:[OCMArg isNotNil]]);
                 OCMVerify([instanceMock sendMessage:[OCMArg isNotNil]]);
@@ -51,8 +57,8 @@ describe(@"OrderService", ^{
         OCMExpect([(DBService *)dbServiceMock removeOrderByUUID:[OCMArg isNotNil]]);
         OCMExpect([instanceMock sendMessage:[OCMArg isNotNil]]);
         waitUntil(^(DoneCallback done) {
-            [orderService addOrder:newOrder].finally(^{
-                [orderService removeOrderByUUID:newOrder.uuid]
+            [orderService addOrder:newOrder byReceivingMessage:NO].finally(^{
+                [orderService removeOrderByUUID:newOrder.uuid byReceivingMessage:NO]
                 .finally(^{
                     expect([orderService countOfOrders]).to.equal(0);
                     OCMVerify([(DBService *)dbServiceMock removeOrderByUUID:[OCMArg isNotNil]]);
@@ -67,9 +73,9 @@ describe(@"OrderService", ^{
         OCMExpect([(DBService *)dbServiceMock updateOrder:[OCMArg isNotNil]]);
         OCMExpect([instanceMock sendMessage:[OCMArg isNotNil]]);
         waitUntil(^(DoneCallback done) {
-            [orderService addOrder:newOrder].finally(^{
+            [orderService addOrder:newOrder byReceivingMessage:NO].finally(^{
                 newOrder.shippingMethod = @"Fedex";
-                [orderService updateOrderByUUID:newOrder.uuid withNewOrder:newOrder]
+                [orderService updateOrderByUUID:newOrder.uuid withNewOrder:newOrder byReceivingMessage:NO]
                 .finally(^{
                     expect([orderService countOfOrders]).to.equal(1);
                     expect([orderService orderByUUID:newOrder.uuid].shippingMethod).to.equal(@"Fedex");
