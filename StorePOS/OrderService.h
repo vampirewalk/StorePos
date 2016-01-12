@@ -23,8 +23,4 @@
 - (AnyPromise *)removeOrderByUUID:(NSString *) uuid byReceivingMessage:(BOOL) byReceivingMessage;
 - (AnyPromise *)updateOrderByUUID:(NSString *) uuid withNewOrder:(Order *) newOrder byReceivingMessage:(BOOL) byReceivingMessage;
 
-- (Order *)orderByUUID:(NSString *) uuid;
-- (NSUInteger)countOfOrders;
-- (Order *)objectInOrdersAtIndex:(NSUInteger)idx;
-
 @end

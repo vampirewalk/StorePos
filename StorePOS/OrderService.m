@@ -14,6 +14,7 @@
 @property (strong, nonatomic) NSMutableArray<Order *> *orders;
 @property (strong, nonatomic) DBService *dbService;
 @property (strong, nonatomic) id<Instancing> instance;
+@property (strong, nonatomic) dispatch_semaphore_t semaphore; //ARC manage this
 @end
 
 @implementation OrderService
@@ -29,6 +30,8 @@
         _instance = instance;
         _instance.delegate = self;
         
+        self.semaphore = dispatch_semaphore_create(1);
+        
     }
     return self;
 }
@@ -36,7 +39,9 @@
 - (AnyPromise *)addOrder:(Order *) order byReceivingMessage:(BOOL) byReceivingMessage
 {
     return dispatch_promise(^{
-        return [self insertObject:order inOrdersAtIndex:_orders.count];
+        dispatch_semaphore_wait(_semaphore, DISPATCH_TIME_FOREVER);
+        [self insertObject:order inOrdersAtIndex:_orders.count];
+        dispatch_semaphore_signal(_semaphore);
     }).thenInBackground(^{
         return [_dbService addOrder:order];
     }).thenInBackground(^{
@@ -50,18 +55,22 @@
 - (AnyPromise *)removeOrderByUUID:(NSString *) uuid byReceivingMessage:(BOOL) byReceivingMessage
 {
     return dispatch_promise(^{
+        dispatch_semaphore_wait(_semaphore, DISPATCH_TIME_FOREVER);
         if (_orders.count > 0) {
             NSInteger index = [self indexOfOrderByUUID:uuid];
             if (index != NSNotFound) {
                 Order *order = _orders[index];
                 [self removeObjectFromOrdersAtIndex:index];
+                dispatch_semaphore_signal(_semaphore);
                 return order;
             }
             else {
+                dispatch_semaphore_signal(_semaphore);
                 @throw [NSError cancelledError];
             }
         }
         else {
+            dispatch_semaphore_signal(_semaphore);
             @throw [NSError cancelledError];
         }
     }).thenInBackground(^(Order *order){
@@ -78,11 +87,14 @@
 - (AnyPromise *)updateOrderByUUID:(NSString *) uuid withNewOrder:(Order *) newOrder byReceivingMessage:(BOOL) byReceivingMessage
 {
     return dispatch_promise(^{
+        dispatch_semaphore_wait(_semaphore, DISPATCH_TIME_FOREVER);
         NSInteger index = [self indexOfOrderByUUID:uuid];
         if (index != NSNotFound) {
             [self replaceObjectInOrdersAtIndex:index withObject:newOrder];
+            dispatch_semaphore_signal(_semaphore);
         }
         else {
+            dispatch_semaphore_signal(_semaphore);
             @throw [NSError cancelledError];
         }
     }).thenInBackground(^{

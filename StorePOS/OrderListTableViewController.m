@@ -18,6 +18,7 @@ static NSString *const OrderListTableViewControllerCellIdentifier = @"OrderListT
 
 @interface OrderListTableViewController ()
 @property (strong, nonatomic) OrderService *service;
+@property (copy, nonatomic) NSArray *cacheOrders;
 @end
 
 @implementation OrderListTableViewController
@@ -72,7 +73,7 @@ static NSString *const OrderListTableViewControllerCellIdentifier = @"OrderListT
 - (void)updateOrderWithIndexPath:(NSIndexPath *) indexPath
 {
     EditOrderViewController *editOrderViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"EditOrderViewController"];
-    Order *order = [_service objectInOrdersAtIndex:indexPath.row];
+    Order *order = self.cacheOrders[indexPath.row];
     editOrderViewController.order = order;
     [self.navigationController pushViewController:editOrderViewController animated:YES];
 }
@@ -83,6 +84,7 @@ static NSString *const OrderListTableViewControllerCellIdentifier = @"OrderListT
 {
     [self.KVOController observe:_service keyPath:@keypath(_service, orders) options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew block:^(OrderListTableViewController *observer, OrderService *service, NSDictionary *change) {
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            self.cacheOrders = _service.orders;
             [observer.tableView reloadData];
         }];
     }];
@@ -117,7 +119,7 @@ static NSString *const OrderListTableViewControllerCellIdentifier = @"OrderListT
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     OrderListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:OrderListTableViewControllerCellIdentifier forIndexPath:indexPath];
-    Order *order = [_service objectInOrdersAtIndex:indexPath.row];
+    Order *order = self.cacheOrders[indexPath.row];
     cell.customerName.text = order.customerName;
     cell.shippingMethod.text = order.shippingMethod;
     cell.tableName.text = order.tableName;
@@ -209,7 +211,7 @@ static NSString *const OrderListTableViewControllerCellIdentifier = @"OrderListT
     NSArray *selectedCells = [self.tableView indexPathsForSelectedRows];
     for (NSInteger index=0; index < selectedCells.count; index++) {
         NSIndexPath *indexPath = selectedCells[index];
-        Order *order = [_service objectInOrdersAtIndex:indexPath.row];
+        Order *order = self.cacheOrders[indexPath.row];
         [uuids addObject:order.uuid];
     }
     
