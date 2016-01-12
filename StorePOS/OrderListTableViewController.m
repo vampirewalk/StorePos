@@ -205,11 +205,16 @@ static NSString *const OrderListTableViewControllerCellIdentifier = @"OrderListT
 
 - (void)removeSelectedOrder
 {
+    NSMutableArray *uuids = [NSMutableArray array];
     NSArray *selectedCells = [self.tableView indexPathsForSelectedRows];
     for (NSInteger index=0; index < selectedCells.count; index++) {
         NSIndexPath *indexPath = selectedCells[index];
         Order *order = [_service objectInOrdersAtIndex:indexPath.row];
-        [_service removeOrderByUUID:order.uuid];
+        [uuids addObject:order.uuid];
+    }
+    
+    for (NSString *uuid in uuids) {
+        [_service removeOrderByUUID:uuid byReceivingMessage:NO];
     }
 }
 

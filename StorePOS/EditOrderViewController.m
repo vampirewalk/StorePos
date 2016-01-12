@@ -109,7 +109,7 @@
 - (void)addOrder
 {
     Order *newOrder = [[Order alloc] initWithUUID:[NSUUID UUID].UUIDString customerName:_customerName.text shippingMethod:_shippingMethod.text tableName:_tableName.text tableSize:[_tableSize.text integerValue] created:[NSDate date]];
-    [_service addOrder:newOrder];
+    [_service addOrder:newOrder byReceivingMessage:NO];
     [self.navigationController popViewControllerAnimated:YES];
 }
 
@@ -119,7 +119,7 @@
     _order.shippingMethod = _shippingMethod.text;
     _order.tableName = _tableName.text;
     _order.tableSize = [_tableSize.text integerValue];
-    [_service updateOrderByUUID:_order.uuid withNewOrder:_order];
+    [_service updateOrderByUUID:_order.uuid withNewOrder:_order byReceivingMessage:NO];
     [self.navigationController popViewControllerAnimated:YES];
 }
 

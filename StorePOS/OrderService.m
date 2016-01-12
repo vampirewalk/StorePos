@@ -33,19 +33,21 @@
     return self;
 }
 
-- (AnyPromise *)addOrder:(Order *) order
+- (AnyPromise *)addOrder:(Order *) order byReceivingMessage:(BOOL) byReceivingMessage
 {
     return dispatch_promise(^{
         return [self insertObject:order inOrdersAtIndex:_orders.count];
     }).thenInBackground(^{
         return [_dbService addOrder:order];
     }).thenInBackground(^{
-        OrderNotification *notification = [[OrderNotification alloc] initWithOperation:Create order:order];
-        [_instance sendMessage:[notification toJSONString]];
+        if (!byReceivingMessage) {
+            OrderNotification *notification = [[OrderNotification alloc] initWithOperation:Create order:order];
+            [_instance sendMessage:[notification toJSONString]];
+        }
     });
 }
 
-- (AnyPromise *)removeOrderByUUID:(NSString *) uuid
+- (AnyPromise *)removeOrderByUUID:(NSString *) uuid byReceivingMessage:(BOOL) byReceivingMessage
 {
     return dispatch_promise(^{
         if (_orders.count > 0) {
@@ -66,12 +68,14 @@
         [_dbService removeOrderByUUID:uuid];
         return order;
     }).thenInBackground(^(Order *order){
-        OrderNotification *notification = [[OrderNotification alloc] initWithOperation:Remove order:order];
-        [_instance sendMessage:[notification toJSONString]];
+        if (!byReceivingMessage) {
+            OrderNotification *notification = [[OrderNotification alloc] initWithOperation:Remove order:order];
+            [_instance sendMessage:[notification toJSONString]];
+        }
     });
 }
 
-- (AnyPromise *)updateOrderByUUID:(NSString *) uuid withNewOrder:(Order *) newOrder
+- (AnyPromise *)updateOrderByUUID:(NSString *) uuid withNewOrder:(Order *) newOrder byReceivingMessage:(BOOL) byReceivingMessage
 {
     return dispatch_promise(^{
         NSInteger index = [self indexOfOrderByUUID:uuid];
@@ -84,8 +88,10 @@
     }).thenInBackground(^{
         return [_dbService updateOrder:newOrder];
     }).thenInBackground(^{
-        OrderNotification *notification = [[OrderNotification alloc] initWithOperation:Update order:newOrder];
-        [_instance sendMessage:[notification toJSONString]];
+        if (!byReceivingMessage) {
+            OrderNotification *notification = [[OrderNotification alloc] initWithOperation:Update order:newOrder];
+            [_instance sendMessage:[notification toJSONString]];
+        }
     });
 }
 
@@ -118,15 +124,16 @@
 {
     OrderNotification *notification = [OrderNotification orderNotificationWithJSON:message];
     Order *order = notification.order;
+    NSString *uuid = order.uuid;
     switch (notification.operation) {
         case Create:
-            [self addOrder:order];
+            [self addOrder:order byReceivingMessage:YES];
             break;
         case Update:
-            [self updateOrderByUUID:order.uuid withNewOrder:order];
+            [self updateOrderByUUID:uuid withNewOrder:order byReceivingMessage:YES];
             break;
         case Remove:
-            [self removeOrderByUUID:order.uuid];
+            [self removeOrderByUUID:uuid byReceivingMessage:YES];
             break;
             
         default:

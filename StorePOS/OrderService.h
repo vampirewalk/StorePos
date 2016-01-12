@@ -19,9 +19,10 @@
 
 - (instancetype)initWithDBService:(DBService *) dbService instance:(id<Instancing>) instance;
 
-- (AnyPromise *)addOrder:(Order *) order;
-- (AnyPromise *)removeOrderByUUID:(NSString *) uuid;
-- (AnyPromise *)updateOrderByUUID:(NSString *) uuid withNewOrder:(Order *) newOrder;
+- (AnyPromise *)addOrder:(Order *) order byReceivingMessage:(BOOL) byReceivingMessage;
+- (AnyPromise *)removeOrderByUUID:(NSString *) uuid byReceivingMessage:(BOOL) byReceivingMessage;
+- (AnyPromise *)updateOrderByUUID:(NSString *) uuid withNewOrder:(Order *) newOrder byReceivingMessage:(BOOL) byReceivingMessage;
+
 - (Order *)orderByUUID:(NSString *) uuid;
 - (NSUInteger)countOfOrders;
 - (Order *)objectInOrdersAtIndex:(NSUInteger)idx;
