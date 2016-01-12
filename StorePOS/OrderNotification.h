@@ -17,9 +17,9 @@ typedef enum : NSUInteger {
 
 @interface OrderNotification : NSObject
 @property (assign, nonatomic) Operation operation;
-@property (strong, nonatomic) Order *order;
+@property (strong, nonatomic) NSArray<Order *> *orders;
 
 + (instancetype)orderNotificationWithJSON:(NSString *) JSON;
-- (instancetype)initWithOperation:(Operation)anOperation order:(Order*)anOrder;
+- (instancetype)initWithOperation:(Operation)anOperation orders:(NSArray *) orders;
 - (NSString *)toJSONString;
 @end

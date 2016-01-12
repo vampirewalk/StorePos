@@ -51,7 +51,7 @@
         return [_dbService addOrder:order];
     }).thenInBackground(^{
         if (!byReceivingMessage) {
-            OrderNotification *notification = [[OrderNotification alloc] initWithOperation:Create order:order];
+            OrderNotification *notification = [[OrderNotification alloc] initWithOperation:Create orders:@[order]];
             [_instance sendMessage:[notification toJSONString]];
         }
     });
@@ -83,11 +83,48 @@
         return order;
     }).thenInBackground(^(Order *order){
         if (!byReceivingMessage) {
-            OrderNotification *notification = [[OrderNotification alloc] initWithOperation:Remove order:order];
+            OrderNotification *notification = [[OrderNotification alloc] initWithOperation:Remove orders:@[order]];
             [_instance sendMessage:[notification toJSONString]];
         }
     });
 }
+
+- (AnyPromise *)removeOrdersByUUIDs:(NSArray *) uuids byReceivingMessage:(BOOL) byReceivingMessage
+{
+    return dispatch_promise(^{
+        dispatch_semaphore_wait(_semaphore, DISPATCH_TIME_FOREVER);
+        if (_orders.count >= uuids.count) {
+            NSMutableArray *orders = [NSMutableArray array];
+            NSMutableIndexSet *set = [NSMutableIndexSet indexSet];
+            for (NSString *uuid in uuids) {
+                NSInteger index = [self indexOfOrderByUUID:uuid];
+                if (index != NSNotFound) {
+                    Order *order = _orders[index];
+                    [orders addObject:order];
+                    [set addIndex:index];
+                }
+            }
+            [self removeOrdersAtIndexes:set];
+            dispatch_semaphore_signal(_semaphore);
+            return [orders copy];
+        }
+        else {
+            dispatch_semaphore_signal(_semaphore);
+            @throw [NSError cancelledError];
+        }
+    }).thenInBackground(^(NSArray *orders){
+        for (Order *order in orders) {
+            [_dbService removeOrderByUUID:order.uuid];
+        }
+        return orders;
+    }).thenInBackground(^(Order *order){
+        if (!byReceivingMessage) {
+            OrderNotification *notification = [[OrderNotification alloc] initWithOperation:Remove orders:@[order]];
+            [_instance sendMessage:[notification toJSONString]];
+        }
+    });
+}
+
 
 - (AnyPromise *)updateOrderByUUID:(NSString *) uuid withNewOrder:(Order *) newOrder byReceivingMessage:(BOOL) byReceivingMessage
 {
@@ -106,7 +143,7 @@
         return [_dbService updateOrder:newOrder];
     }).thenInBackground(^{
         if (!byReceivingMessage) {
-            OrderNotification *notification = [[OrderNotification alloc] initWithOperation:Update order:newOrder];
+            OrderNotification *notification = [[OrderNotification alloc] initWithOperation:Update orders:@[newOrder]];
             [_instance sendMessage:[notification toJSONString]];
         }
     });
@@ -140,22 +177,31 @@
 - (void)didReceiveMessage:(NSString *) message
 {
     OrderNotification *notification = [OrderNotification orderNotificationWithJSON:message];
-    Order *order = notification.order;
-    NSString *uuid = order.uuid;
+    NSMutableArray *uuids = [NSMutableArray array];
     switch (notification.operation) {
         case Create:
-            [self addOrder:order byReceivingMessage:YES];
+            for (Order *order in notification.orders) {
+                [self addOrder:order byReceivingMessage:YES];
+            }
             break;
         case Update:
-            [self updateOrderByUUID:uuid withNewOrder:order byReceivingMessage:YES];
+            for (Order *order in notification.orders) {
+                NSString *uuid = order.uuid;
+                [self updateOrderByUUID:uuid withNewOrder:order byReceivingMessage:YES];
+            }
             break;
         case Remove:
-            [self removeOrderByUUID:uuid byReceivingMessage:YES];
+            for (Order *order in notification.orders) {
+                NSString *uuid = order.uuid;
+                [uuids addObject:uuid];
+            }
+            [self removeOrdersByUUIDs:uuids byReceivingMessage:YES];
             break;
             
         default:
             break;
     }
+    
 }
 
 #pragma mark -
