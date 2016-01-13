@@ -22,5 +22,5 @@
 - (AnyPromise *)addOrder:(Order *) order byReceivingMessage:(BOOL) byReceivingMessage;
 - (AnyPromise *)removeOrderByUUID:(NSString *) uuid byReceivingMessage:(BOOL) byReceivingMessage;
 - (AnyPromise *)updateOrderByUUID:(NSString *) uuid withNewOrder:(Order *) newOrder byReceivingMessage:(BOOL) byReceivingMessage;
-
+- (AnyPromise *)loadAllOrdersInLocalDatabase;
 @end

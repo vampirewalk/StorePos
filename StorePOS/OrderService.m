@@ -25,7 +25,6 @@
     if (self) {
         _orders = [NSMutableArray array];
         _dbService = dbService;
-        [_orders addObjectsFromArray:[_dbService queryAllOrdersBySortCriteria:Created]];
         
         _instance = instance;
         _instance.delegate = self;
@@ -109,6 +108,17 @@
             OrderNotification *notification = [[OrderNotification alloc] initWithOperation:Update order:newOrder];
             [_instance sendMessage:[notification toJSONString]];
         }
+    });
+}
+
+- (AnyPromise *)loadAllOrdersInLocalDatabase
+{
+    return dispatch_promise(^{
+        dispatch_semaphore_wait(_semaphore, DISPATCH_TIME_FOREVER);
+        NSArray<Order *> *orders = [_dbService queryAllOrdersBySortCriteria:Created];
+        NSMutableIndexSet *set = [NSMutableIndexSet indexSetWithIndexesInRange:NSMakeRange(0, orders.count)];
+        [self insertOrders:orders atIndexes:set];
+        dispatch_semaphore_signal(_semaphore);
     });
 }
 

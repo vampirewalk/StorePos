@@ -35,6 +35,7 @@
 #endif
     
     self.orderService = [[OrderService alloc] initWithDBService:_dbService instance:instance];
+    [_orderService loadAllOrdersInLocalDatabase];
     
     [Chameleon setGlobalThemeUsingPrimaryColor:[UIColor flatYellowColorDark] withContentStyle:UIContentStyleContrast];
     
