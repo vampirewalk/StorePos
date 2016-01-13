@@ -7,9 +7,16 @@
 //
 
 #import "AppDelegate.h"
+#import "DBService.h"
+#import "DiscoveryService.h"
+#import "PublishService.h"
+#import "MasterInstance.h"
+#import "SlaveInstance.h"
+#import <ChameleonFramework/Chameleon.h>
 
 @interface AppDelegate ()
-
+@property (strong, nonatomic) OrderService *orderService;
+@property (strong, nonatomic) DBService *dbService;
 @end
 
 @implementation AppDelegate
@@ -17,6 +24,21 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    self.dbService = [[DBService alloc] initWithPersistentMode];
+    
+#ifdef MasterConfig
+    PublishService *publishService = [[PublishService alloc] init];
+    MasterInstance *instance = [[MasterInstance alloc] initWithPublishService:publishService];
+#else
+    DiscoveryService *discoveryService = [[DiscoveryService alloc] init];
+    SlaveInstance *instance = [[SlaveInstance alloc] initWithDiscoveryService:discoveryService];
+#endif
+    
+    self.orderService = [[OrderService alloc] initWithDBService:_dbService instance:instance];
+    [_orderService loadAllOrdersInLocalDatabase];
+    
+    [Chameleon setGlobalThemeUsingPrimaryColor:[UIColor flatYellowColorDark] withContentStyle:UIContentStyleContrast];
+    
     return YES;
 }
 

@@ -1,25 +1,111 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="7P4-ye-maF">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Order List-->
+        <scene sceneID="2DV-fM-hIi">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                <tableViewController storyboardIdentifier="OrderListTableViewController" id="aWS-BL-uvI" customClass="OrderListTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="wQD-tq-hS2">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="OrderListTableViewControllerCellIdentifier" rowHeight="120" id="4o2-72-cMu" customClass="OrderListTableViewCell">
+                                <rect key="frame" x="0.0" y="92" width="600" height="120"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4o2-72-cMu" id="Bko-N1-ytG">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="119.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="aWS-BL-uvI" id="afo-7h-zQV"/>
+                            <outlet property="delegate" destination="aWS-BL-uvI" id="7GR-bY-fp9"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Order List" id="e96-uT-fii"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jfd-5D-smn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="620" y="-23"/>
+        </scene>
+        <!--Edit Order View Controller-->
+        <scene sceneID="XDj-f8-S7a">
+            <objects>
+                <viewController storyboardIdentifier="EditOrderViewController" id="eRQ-FI-LOe" customClass="EditOrderViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4BV-Tb-xwM"/>
+                        <viewControllerLayoutGuide type="bottom" id="nbc-g3-eVa"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="sCI-Mh-yE7">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yaU-Mu-13U" customClass="OrderTextField">
+                                <rect key="frame" x="288" y="163" width="25" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bCA-N0-Eyx" customClass="OrderTextField">
+                                <rect key="frame" x="288" y="244" width="25" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="34r-lG-PVQ" customClass="OrderTextField">
+                                <rect key="frame" x="288" y="320" width="25" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CWZ-eO-ajA" customClass="OrderTextField">
+                                <rect key="frame" x="288" y="73" width="25" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="bCA-N0-Eyx" firstAttribute="top" secondItem="4BV-Tb-xwM" secondAttribute="bottom" constant="224" placeholder="YES" id="Drm-mK-I0a"/>
+                            <constraint firstItem="34r-lG-PVQ" firstAttribute="top" secondItem="4BV-Tb-xwM" secondAttribute="bottom" constant="300" placeholder="YES" id="NLK-ie-5vx"/>
+                            <constraint firstItem="CWZ-eO-ajA" firstAttribute="top" secondItem="4BV-Tb-xwM" secondAttribute="bottom" constant="53" placeholder="YES" id="PrM-tC-z3x"/>
+                            <constraint firstItem="34r-lG-PVQ" firstAttribute="centerX" secondItem="sCI-Mh-yE7" secondAttribute="centerX" placeholder="YES" id="RrQ-aJ-tJB"/>
+                            <constraint firstItem="yaU-Mu-13U" firstAttribute="centerX" secondItem="sCI-Mh-yE7" secondAttribute="centerX" placeholder="YES" id="WKf-re-N4W"/>
+                            <constraint firstItem="bCA-N0-Eyx" firstAttribute="centerX" secondItem="sCI-Mh-yE7" secondAttribute="centerX" placeholder="YES" id="awp-cv-9Pk"/>
+                            <constraint firstItem="CWZ-eO-ajA" firstAttribute="centerX" secondItem="sCI-Mh-yE7" secondAttribute="centerX" placeholder="YES" id="qL9-rJ-x1C"/>
+                            <constraint firstItem="yaU-Mu-13U" firstAttribute="top" secondItem="4BV-Tb-xwM" secondAttribute="bottom" constant="143" placeholder="YES" id="vY5-u8-T0f"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="customerName" destination="CWZ-eO-ajA" id="UPO-dN-mHL"/>
+                        <outlet property="shippingMethod" destination="yaU-Mu-13U" id="bOh-CG-CHA"/>
+                        <outlet property="tableName" destination="bCA-N0-Eyx" id="HCK-n6-T7h"/>
+                        <outlet property="tableSize" destination="34r-lG-PVQ" id="yJR-hZ-kCW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tLr-vb-Ymc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1286" y="-28"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="zbK-5G-sYd">
+            <objects>
+                <navigationController id="7P4-ye-maF" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="S30-ey-0TW">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="aWS-BL-uvI" kind="relationship" relationship="rootViewController" id="Ojh-Zv-ymI"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Aew-MK-HX9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-200" y="-23"/>
         </scene>
     </scenes>
 </document>
