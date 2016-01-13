@@ -11,17 +11,21 @@
 
 @implementation OrderNotification
 
++ (NSDictionary *)modelContainerPropertyGenericClass {
+    return @{@"orders" : [Order class]};
+}
+
 + (instancetype)orderNotificationWithJSON:(NSString *) JSON
 {
     return [OrderNotification yy_modelWithJSON:JSON];
 }
 
-- (id)initWithOperation:(Operation)anOperation order:(Order*)anOrder
+- (id)initWithOperation:(Operation)anOperation orders:(NSArray *) orders
 {
     self = [super init];
     if (self) {
         _operation = anOperation;
-        _order = anOrder;
+        _orders = orders;
     }
     return self;
 }

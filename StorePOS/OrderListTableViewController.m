@@ -120,10 +120,10 @@ static NSString *const OrderListTableViewControllerCellIdentifier = @"OrderListT
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     OrderListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:OrderListTableViewControllerCellIdentifier forIndexPath:indexPath];
     Order *order = self.cacheOrders[indexPath.row];
-    cell.customerName.text = order.customerName;
-    cell.shippingMethod.text = order.shippingMethod;
-    cell.tableName.text = order.tableName;
-    cell.tableSize.text = [@(order.tableSize) stringValue];
+    cell.customerName.text = [NSString stringWithFormat:@"Customer name:    %@", order.customerName];
+    cell.shippingMethod.text = [NSString stringWithFormat:@"Shipping method:    %@", order.shippingMethod];
+    cell.tableName.text = [NSString stringWithFormat:@"Table name:  %@", order.tableName];
+    cell.tableSize.text = [NSString stringWithFormat:@"Table size:  %@", [@(order.tableSize) stringValue]];
     
     UIView *bgColorView = [[UIView alloc] init];
     bgColorView.backgroundColor = [UIColor flatPinkColor];
