@@ -113,7 +113,7 @@ static NSString *const OrderListTableViewControllerCellIdentifier = @"OrderListT
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return _service.orders.count;
+    return _cacheOrders.count;
 }
 
 
